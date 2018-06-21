@@ -14,7 +14,7 @@ class IPTemplate
     private $cellWigth = 4.956;
     function  __construct()
     {
-        $this->setLinePosition(1,"1.1.1",33.5,59.5, 34);
+        $this->setLinePosition(1,"1.1.1",33.5,59.5, 37);
         $this->setLinePosition(1,"1.1.2",34,69.5, 34);
         $this->setLinePosition(1,"1.1.3",34,79.5, 34);
 
@@ -98,7 +98,7 @@ class IPTemplate
     }
 
     private function writeDataToPage($data){
-        for($p=1 ; $p<=2; $p++) {
+        for($p=1 ; $p<=1; $p++) {
             $this->pdf->AddPage();
 
             $this->pdf->Image("images/IP_0".$p.".jpg", 0, 0, 210, 297, 'JPG', null, '', true, 300, '', false, false, 1, false, false, false);
@@ -140,7 +140,7 @@ class IPTemplate
         $this->pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
         $this->pdf->SetAutoPageBreak(false, PDF_MARGIN_BOTTOM);
-
+        $this->pdf->SetMargins(10, 20, 0, true);
         $this->pdf->setFontSubsetting(true);
 
         $this->pdf->SetFont('couriercyrillic_12144', '', 18, '', true);
