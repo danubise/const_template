@@ -329,7 +329,7 @@ class IPTemplate
     }
 
     private function writeDataToPage($data){
-        for($p=4 ; $p<=4; $p++) {
+        for($p=1 ; $p<=5; $p++) {
             $this->pdf->AddPage();
 
             $this->pdf->Image("images/IP_0".$p.".jpg", 0, 0, 210, 297, 'JPG', null, '', true, 300, '', false, false, 1, false, false, false);
