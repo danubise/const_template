@@ -77,6 +77,25 @@ class IPTemplate
         $this->setLinePosition(2,"7,5,2",0,64.5,251.5, 3);
 
 
+        $this->setLinePosition(3,"8,1",0,20.3,58, 1);
+
+        $this->setLinePosition(3,"8,2",0,46,70.7, 25);
+
+        $this->setLinePosition(3,"8,3,1",0,36,83.7, 2);
+        $this->setLinePosition(3,"8,3,2",0,51,83.7, 2);
+        $this->setLinePosition(3,"8,3,3",0,65.7,83.7, 4);
+
+        $this->setLinePosition(3,"8,4",0,35.5,95, 34);
+        $this->setLinePosition(3,"8,4",1,6.2,104.2, 40);
+        $this->setLinePosition(3,"8,4",2,6.2,113.5, 40);
+
+        $this->setLinePosition(3,"8,5,1",0,41.3,126.8, 2);
+        $this->setLinePosition(3,"8,5,2",0,56,126.8, 2);
+        $this->setLinePosition(3,"8,5,3",0,71,126.8, 4);
+
+
+
+
         $this->cpd = new CharactersPositionDiviation();
     }
 
@@ -93,7 +112,7 @@ class IPTemplate
     }
 
     private function writeDataToPage($data){
-        for($page=1 ; $page<=2; $page++) {
+        for($page=1 ; $page<=3; $page++) {
             $this->pdf->AddPage();
 
             $this->pdf->Image("images/IP_0".$page.".jpg", 0, 0, 210, 297, 'JPG', null, '', true, 300, '', false, false, 1, false, false, false);
@@ -155,25 +174,6 @@ class IPTemplate
 
     }
     private function loadPosition(){
-
-
-
-
-            $this->setLinePosition(3,"8,1",20.3,58, 1);
-
-            $this->setLinePosition(3,"8,2",46,70.7, 25);
-
-            $this->setLinePosition(3,"8,3,1",36,83.7, 2);
-            $this->setLinePosition(3,"8,3,2",51,83.7, 2);
-            $this->setLinePosition(3,"8,3,3",65.7,83.7, 4);
-
-            $this->setLinePosition(3,"8,4,1",35.5,95, 34);
-            $this->setLinePosition(3,"8,4,2",6.2,104.2, 40);
-            $this->setLinePosition(3,"8,4,3",6.2,113.5, 40);
-
-            $this->setLinePosition(3,"8,5,1",41.3,126.8, 2);
-            $this->setLinePosition(3,"8,5,2",56,126.8, 2);
-            $this->setLinePosition(3,"8,5,3",71,126.8, 4);
 
 
 
