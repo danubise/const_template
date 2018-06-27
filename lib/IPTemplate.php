@@ -35,6 +35,48 @@ class IPTemplate
         $this->setLinePosition(1,"5,1",0, 103,223.3, 3);
         $this->setLinePosition(1,"5",0,40.5,207.7, 1);
 
+        $this->setLinePosition(2,"6,1",0,45,47, 6);
+        $this->setLinePosition(2,"6,2",0,144,47, 2);
+        $this->setLinePosition(2,"6,3,1",0,5.3,63, 10);
+        $this->setLinePosition(2,"6,3,2",0,64.5,63, 28);
+        $this->setLinePosition(2,"6,3,2",1,5.3,72.7, 40);
+
+        $this->setLinePosition(2,"6,4,1",0,5.3,87.5, 10);
+        $this->setLinePosition(2,"6,4,2",0,64.5,87.5, 28);
+
+        $this->setLinePosition(2,"6,5,1",0,5.3,102.1, 10);
+        $this->setLinePosition(2,"6,5,2",0,64.5,102.1, 28);
+        $this->setLinePosition(2,"6,5,2",1,5.3,111.8, 40);
+
+        $this->setLinePosition(2,"6,6,1",0,5.3,126.2, 10);
+        $this->setLinePosition(2,"6,6,2",0,65,126.2, 28);
+        $this->setLinePosition(2,"6,6,2",1,5.3,136, 40);
+
+        $this->setLinePosition(2,"6,7,1",0,5.3,150, 10);
+        $this->setLinePosition(2,"6,7,2",0,60.5,150, 8);
+
+        $this->setLinePosition(2,"6,8,1",0,108.5,150, 10);
+        $this->setLinePosition(2,"6,8,2",0,163.7,150, 8);
+
+        $this->setLinePosition(2,"6,9,1",0,60.5,160, 8);
+        $this->setLinePosition(2,"6,9,2",0,163.7,160, 8);
+
+        $this->setLinePosition(2,"7,1",0,40.5,184.3, 2);
+
+        $this->setLinePosition(2,"7,2",0,56,199, 25);
+
+        $this->setLinePosition(2,"7,3,1",0,35.3,209.1, 2);
+        $this->setLinePosition(2,"7,3,2",0,50,209.1, 2);
+        $this->setLinePosition(2,"7,3,3",0,65,209.1, 4);
+
+        $this->setLinePosition(2,"7,4",0,34.8,220, 34);
+        $this->setLinePosition(2,"7,4",1,5.2,230, 40);
+        $this->setLinePosition(2,"7,4",2,5.2,240, 40);
+
+        $this->setLinePosition(2,"7,5,1",0,44.8,251.5, 3);
+        $this->setLinePosition(2,"7,5,2",0,64.5,251.5, 3);
+
+
         $this->cpd = new CharactersPositionDiviation();
     }
 
@@ -51,7 +93,7 @@ class IPTemplate
     }
 
     private function writeDataToPage($data){
-        for($page=1 ; $page<=1; $page++) {
+        for($page=1 ; $page<=2; $page++) {
             $this->pdf->AddPage();
 
             $this->pdf->Image("images/IP_0".$page.".jpg", 0, 0, 210, 297, 'JPG', null, '', true, 300, '', false, false, 1, false, false, false);
@@ -67,7 +109,8 @@ class IPTemplate
     private function printLines($page , $lineid , $textArray){
         $inlineStartPosition = 0;
         foreach ($this->linePosition[$page][$lineid] as $index => $linePosition){
-            $inlineStartPosition = $this->printOneLine( $linePosition , $textArray, $inlineStartPosition);
+
+            $inlineStartPosition = $this->printOneLine( $linePosition , $textArray, $inlineStartPosition  );
             if($inlineStartPosition == -1 ){
                 break;
             }
@@ -83,7 +126,7 @@ class IPTemplate
             $this->pdf->Write(10, $symbol);
 
             if($i >= $linePosition->maxCharCount){
-                return $i + 1;
+                return $i + 1 + $inlineStartPosition;
             }
         }
         return -1;
@@ -112,48 +155,6 @@ class IPTemplate
 
     }
     private function loadPosition(){
-
-
-            $this->setLinePosition(2,"6,1",45,47, 6);
-            $this->setLinePosition(2,"6,2",144,47, 2);
-            $this->setLinePosition(2,"6,3,1",5.3,63, 10);
-            $this->setLinePosition(2,"6,3,2",64.5,63, 28);
-            $this->setLinePosition(2,"6,3,3",5.3,72.7, 40);
-
-            $this->setLinePosition(2,"6,4,1",5.3,87.5, 10);
-            $this->setLinePosition(2,"6,4,2",64.5,87.5, 28);
-
-            $this->setLinePosition(2,"6,5,1",5.3,102.1, 10);
-            $this->setLinePosition(2,"6,5,2",64.5,102.1, 28);
-            $this->setLinePosition(2,"6,5,3",5.3,111.8, 40);
-
-            $this->setLinePosition(2,"6,6,1",5.3,126.2, 10);
-            $this->setLinePosition(2,"6,6,2",65,126.2, 28);
-            $this->setLinePosition(2,"6,6,3",5.3,136, 40);
-
-            $this->setLinePosition(2,"6,7,1",5.3,150, 10);
-            $this->setLinePosition(2,"6,7,2",60.5,150, 8);
-
-            $this->setLinePosition(2,"6,8,1",108.5,150, 10);
-            $this->setLinePosition(2,"6,8,2",163.7,150, 8);
-
-            $this->setLinePosition(2,"6,9,1",60.5,160, 8);
-            $this->setLinePosition(2,"6,9,2",163.7,160, 8);
-
-            $this->setLinePosition(2,"7,1",40.5,184.3, 2);
-
-            $this->setLinePosition(2,"7,2",56,199, 25);
-
-            $this->setLinePosition(2,"7,3,1",35.3,209.1, 2);
-            $this->setLinePosition(2,"7,3,2",50,209.1, 2);
-            $this->setLinePosition(2,"7,3,3",65,209.1, 4);
-
-            $this->setLinePosition(2,"7,4,1",34.8,220, 34);
-            $this->setLinePosition(2,"7,4,2",5.2,230, 40);
-            $this->setLinePosition(2,"7,4,3",5.2,240, 40);
-
-            $this->setLinePosition(2,"7,5,1",44.8,251.5, 3);
-            $this->setLinePosition(2,"7,5,2",64.5,251.5, 3);
 
 
 
