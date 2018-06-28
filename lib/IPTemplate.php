@@ -289,7 +289,15 @@ class IPTemplate
         $this->setLinePosition(4,"page4.2",166,177,250, 2);
         $this->setLinePosition(4,"page4.2",167,192,250, 2);
 
+        $this->setLinePosition(5,"pagenamber5",0,118.2,12.2, 3);
+        $this->setLinePosition(5,"1",0,20.3,81.5, 1);
 
+        $this->setLinePosition(5,"telephone",0,72.5,99.5, 20);
+
+        $this->setLinePosition(5,"email",0,23.1,109.5, 35);
+
+        $this->setLinePosition(5,"3.1",0,20.5,179, 1);
+        $this->setLinePosition(5,"3.2",0,119,195.6, 12);
 
         $this->cpd = new CharactersPositionDiviation();
     }
@@ -307,7 +315,7 @@ class IPTemplate
     }
 
     private function writeDataToPage($data){
-        for($page=1 ; $page<=4; $page++) {
+        for($page=1 ; $page<=5; $page++) {
             switch($page){
                 case 1:
                 case 2:
@@ -329,6 +337,14 @@ class IPTemplate
 
                             }while($respond['startFrom'] > -1);
                         }
+                        break;
+                case 5:
+                    $this->pageNumber++;
+
+                    $data['pagenamber5'] = sprintf("%03d", $this->pageNumber);
+
+                    $this->pagesFromOnetoThree($page, $data);
+                    break;
 
             }
         }
@@ -425,15 +441,7 @@ class IPTemplate
     }
     private function loadPosition(){
 
-            $this->setLinePosition(5,"pagenamber5",118.2,12.2, 3);
-            $this->setLinePosition(5,"1",20.3,81.5, 1);
 
-            $this->setLinePosition(5,"telephone",72.5,99.5, 20);
-
-            $this->setLinePosition(5,"email",23.1,109.5, 35);
-
-            $this->setLinePosition(5,"3.1",20.5,179, 1);
-            $this->setLinePosition(5,"3.2",119,195.6, 12);
     }
 
 }
