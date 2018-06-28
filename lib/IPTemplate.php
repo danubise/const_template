@@ -12,6 +12,7 @@ class IPTemplate
     private $pdf = null;
     private $cpd = null;
     private $cellWigth = 4.956;
+    private $pageNumber = 0;
     function  __construct()
     {
         $this->setLinePosition(1,"1.1.1",0, 33.5,59.5, 34);
@@ -93,6 +94,200 @@ class IPTemplate
         $this->setLinePosition(3,"8,5,2",0,56,126.8, 2);
         $this->setLinePosition(3,"8,5,3",0,71,126.8, 4);
 
+        $this->setLinePosition(4,"pagenamber4",0,118.2,12.2, 3);
+
+        $this->setLinePosition(4,"page4.1",0,77,61.5, 2);
+        $this->setLinePosition(4,"page4.1",1,92,61.5, 2);
+        $this->setLinePosition(4,"page4.1",2,107,61.5, 2);
+
+
+        $this->setLinePosition(4,"page4.2",0,7.5,83.5, 2);
+        $this->setLinePosition(4,"page4.2",1,22.5,83.5, 2);
+        $this->setLinePosition(4,"page4.2",2,37.5,83.5, 2);
+        $this->setLinePosition(4,"page4.2",3,59,83.5, 2);
+        $this->setLinePosition(4,"page4.2",4,74,83.5, 2);
+        $this->setLinePosition(4,"page4.2",5,89,83.5, 2);
+        $this->setLinePosition(4,"page4.2",6,110.5,83.5, 2);
+        $this->setLinePosition(4,"page4.2",7,125.5,83.5, 2);
+        $this->setLinePosition(4,"page4.2",8,140.5,83.5, 2);
+        $this->setLinePosition(4,"page4.2",9,162,83.5, 2);
+        $this->setLinePosition(4,"page4.2",10,177,83.5, 2);
+        $this->setLinePosition(4,"page4.2",11,192,83.5, 2);
+
+        $this->setLinePosition(4,"page4.2",12,7.5,96.3, 2);
+        $this->setLinePosition(4,"page4.2",13,22.5,96.3, 2);
+        $this->setLinePosition(4,"page4.2",14,37.5,96.3, 2);
+        $this->setLinePosition(4,"page4.2",15,59,96.3, 2);
+        $this->setLinePosition(4,"page4.2",16,74,96.3, 2);
+        $this->setLinePosition(4,"page4.2",17,89,96.3, 2);
+        $this->setLinePosition(4,"page4.2",18,110.5,96.3, 2);
+        $this->setLinePosition(4,"page4.2",19,125.5,96.3, 2);
+        $this->setLinePosition(4,"page4.2",20,140.5,96.3, 2);
+        $this->setLinePosition(4,"page4.2",21,162,96.3, 2);
+        $this->setLinePosition(4,"page4.2",22,177,96.3, 2);
+        $this->setLinePosition(4,"page4.2",23,192,96.3, 2);
+
+        $this->setLinePosition(4,"page4.2",24,7.5,109, 2);
+        $this->setLinePosition(4,"page4.2",25,22.5,109, 2);
+        $this->setLinePosition(4,"page4.2",26,37.5,109, 2);
+        $this->setLinePosition(4,"page4.2",27,59,109, 2);
+        $this->setLinePosition(4,"page4.2",28,74,109, 2);
+        $this->setLinePosition(4,"page4.2",29,89,109, 2);
+        $this->setLinePosition(4,"page4.2",30,110.5,109, 2);
+        $this->setLinePosition(4,"page4.2",31,125.5,109, 2);
+        $this->setLinePosition(4,"page4.2",32,140.5,109, 2);
+        $this->setLinePosition(4,"page4.2",33,162,109, 2);
+        $this->setLinePosition(4,"page4.2",34,177,109, 2);
+        $this->setLinePosition(4,"page4.2",35,192,109, 2);
+
+        $this->setLinePosition(4,"page4.2",36,7.5,122, 2);
+        $this->setLinePosition(4,"page4.2",37,22.5,122, 2);
+        $this->setLinePosition(4,"page4.2",38,37.5,122, 2);
+        $this->setLinePosition(4,"page4.2",39,59,122, 2);
+        $this->setLinePosition(4,"page4.2",40,74,122, 2);
+        $this->setLinePosition(4,"page4.2",41,89,122, 2);
+        $this->setLinePosition(4,"page4.2",42,110.5,122, 2);
+        $this->setLinePosition(4,"page4.2",43,125.5,122, 2);
+        $this->setLinePosition(4,"page4.2",44,140.5,122, 2);
+        $this->setLinePosition(4,"page4.2",45,162,122, 2);
+        $this->setLinePosition(4,"page4.2",46,177,122, 2);
+        $this->setLinePosition(4,"page4.2",47,192,122, 2);
+
+        $this->setLinePosition(4,"page4.2",48,7.5,135, 2);
+        $this->setLinePosition(4,"page4.2",49,22.5,135, 2);
+        $this->setLinePosition(4,"page4.2",50,37.5,135, 2);
+        $this->setLinePosition(4,"page4.2",51,59,135, 2);
+        $this->setLinePosition(4,"page4.2",52,74,135, 2);
+        $this->setLinePosition(4,"page4.2",53,89,135, 2);
+        $this->setLinePosition(4,"page4.2",54,110.5,135, 2);
+        $this->setLinePosition(4,"page4.2",55,125.5,135, 2);
+        $this->setLinePosition(4,"page4.2",56,140.5,135, 2);
+        $this->setLinePosition(4,"page4.2",57,162,135, 2);
+        $this->setLinePosition(4,"page4.2",58,177,135, 2);
+        $this->setLinePosition(4,"page4.2",59,192,135, 2);
+
+        $this->setLinePosition(4,"page4.2",60,7.5,147, 2);
+        $this->setLinePosition(4,"page4.2",61,22.5,147, 2);
+        $this->setLinePosition(4,"page4.2",62,37.5,147, 2);
+        $this->setLinePosition(4,"page4.2",63,59,147, 2);
+        $this->setLinePosition(4,"page4.2",64,74,147, 2);
+        $this->setLinePosition(4,"page4.2",65,89,147, 2);
+        $this->setLinePosition(4,"page4.2",66,110.5,147, 2);
+        $this->setLinePosition(4,"page4.2",67,125.5,147, 2);
+        $this->setLinePosition(4,"page4.2",68,140.5,147, 2);
+        $this->setLinePosition(4,"page4.2",69,162,147, 2);
+        $this->setLinePosition(4,"page4.2",70,177,147, 2);
+        $this->setLinePosition(4,"page4.2",71,192,147, 2);
+
+        $this->setLinePosition(4,"page4.2",72,7.5,160, 2);
+        $this->setLinePosition(4,"page4.2",73,22.5,160, 2);
+        $this->setLinePosition(4,"page4.2",74,37.5,160, 2);
+        $this->setLinePosition(4,"page4.2",75,59,160, 2);
+        $this->setLinePosition(4,"page4.2",76,74,160, 2);
+        $this->setLinePosition(4,"page4.2",77,89,160, 2);
+        $this->setLinePosition(4,"page4.2",78,110.5,160, 2);
+        $this->setLinePosition(4,"page4.2",79,125.5,160, 2);
+        $this->setLinePosition(4,"page4.2",80,140.5,160, 2);
+        $this->setLinePosition(4,"page4.2",81,162,160, 2);
+        $this->setLinePosition(4,"page4.2",82,177,160, 2);
+        $this->setLinePosition(4,"page4.2",83,192,160, 2);
+
+
+        $this->setLinePosition(4,"page4.2",84,7.5,173, 2);
+        $this->setLinePosition(4,"page4.2",85,22.5,173, 2);
+        $this->setLinePosition(4,"page4.2",86,37.5,173, 2);
+        $this->setLinePosition(4,"page4.2",87,59,173, 2);
+        $this->setLinePosition(4,"page4.2",88,74,173, 2);
+        $this->setLinePosition(4,"page4.2",89,89,173, 2);
+        $this->setLinePosition(4,"page4.2",90,110.5,173, 2);
+        $this->setLinePosition(4,"page4.2",91,125.5,173, 2);
+        $this->setLinePosition(4,"page4.2",92,140.5,173, 2);
+        $this->setLinePosition(4,"page4.2",93,162,173, 2);
+        $this->setLinePosition(4,"page4.2",94,177,173, 2);
+        $this->setLinePosition(4,"page4.2",95,192,173, 2);
+
+        $this->setLinePosition(4,"page4.2",96,7.5,186, 2);
+        $this->setLinePosition(4,"page4.2",97,22.5,186, 2);
+        $this->setLinePosition(4,"page4.2",98,37.5,186, 2);
+        $this->setLinePosition(4,"page4.2",99,59,186, 2);
+        $this->setLinePosition(4,"page4.2",100,74,186, 2);
+        $this->setLinePosition(4,"page4.2",101,89,186, 2);
+        $this->setLinePosition(4,"page4.2",102,110.5,186, 2);
+        $this->setLinePosition(4,"page4.2",103,125.5,186, 2);
+        $this->setLinePosition(4,"page4.2",104,140.5,186, 2);
+        $this->setLinePosition(4,"page4.2",105,162,186, 2);
+        $this->setLinePosition(4,"page4.2",106,177,186, 2);
+        $this->setLinePosition(4,"page4.2",107,192,186, 2);
+
+        $this->setLinePosition(4,"page4.2",108,7.5,198.5, 2);
+        $this->setLinePosition(4,"page4.2",109,22.5,198.5, 2);
+        $this->setLinePosition(4,"page4.2",110,37.5,198.5, 2);
+        $this->setLinePosition(4,"page4.2",111,59,198.5, 2);
+        $this->setLinePosition(4,"page4.2",112,74,198.5, 2);
+        $this->setLinePosition(4,"page4.2",113,89,198.5, 2);
+        $this->setLinePosition(4,"page4.2",114,110.5,198.5, 2);
+        $this->setLinePosition(4,"page4.2",115,125.5,198.5, 2);
+        $this->setLinePosition(4,"page4.2",116,140.5,198.5, 2);
+        $this->setLinePosition(4,"page4.2",117,162,198.5, 2);
+        $this->setLinePosition(4,"page4.2",118,177,198.5, 2);
+        $this->setLinePosition(4,"page4.2",119,192,198.5, 2);
+
+
+        $this->setLinePosition(4,"page4.2",120,7.5,211, 2);
+        $this->setLinePosition(4,"page4.2",121,22.5,211, 2);
+        $this->setLinePosition(4,"page4.2",122,37.5,211, 2);
+        $this->setLinePosition(4,"page4.2",123,59,211, 2);
+        $this->setLinePosition(4,"page4.2",124,74,211, 2);
+        $this->setLinePosition(4,"page4.2",125,89,211, 2);
+        $this->setLinePosition(4,"page4.2",126,110.5,211, 2);
+        $this->setLinePosition(4,"page4.2",127,125.5,211, 2);
+        $this->setLinePosition(4,"page4.2",128,140.5,211, 2);
+        $this->setLinePosition(4,"page4.2",129,162,211, 2);
+        $this->setLinePosition(4,"page4.2",130,177,211, 2);
+        $this->setLinePosition(4,"page4.2",131,192,211, 2);
+
+
+        $this->setLinePosition(4,"page4.2",132,7.5,224, 2);
+        $this->setLinePosition(4,"page4.2",133,22.5,224, 2);
+        $this->setLinePosition(4,"page4.2",134,37.5,224, 2);
+        $this->setLinePosition(4,"page4.2",135,59,224, 2);
+        $this->setLinePosition(4,"page4.2",136,74,224, 2);
+        $this->setLinePosition(4,"page4.2",137,89,224, 2);
+        $this->setLinePosition(4,"page4.2",138,110.5,224, 2);
+        $this->setLinePosition(4,"page4.2",139,125.5,224, 2);
+        $this->setLinePosition(4,"page4.2",140,140.5,224, 2);
+        $this->setLinePosition(4,"page4.2",141,162,224, 2);
+        $this->setLinePosition(4,"page4.2",142,177,224, 2);
+        $this->setLinePosition(4,"page4.2",143,192,224, 2);
+
+
+
+        $this->setLinePosition(4,"page4.2",144,7.5,237, 2);
+        $this->setLinePosition(4,"page4.2",145,22.5,237, 2);
+        $this->setLinePosition(4,"page4.2",146,37.5,237, 2);
+        $this->setLinePosition(4,"page4.2",147,59,237, 2);
+        $this->setLinePosition(4,"page4.2",148,74,237, 2);
+        $this->setLinePosition(4,"page4.2",149,89,237, 2);
+        $this->setLinePosition(4,"page4.2",150,110.5,237, 2);
+        $this->setLinePosition(4,"page4.2",151,125.5,237, 2);
+        $this->setLinePosition(4,"page4.2",152,140.5,237, 2);
+        $this->setLinePosition(4,"page4.2",153,162,237, 2);
+        $this->setLinePosition(4,"page4.2",154,177,237, 2);
+        $this->setLinePosition(4,"page4.2",155,192,237, 2);
+
+
+        $this->setLinePosition(4,"page4.2",156,7.5,250, 2);
+        $this->setLinePosition(4,"page4.2",157,22.5,250, 2);
+        $this->setLinePosition(4,"page4.2",158,37.5,250, 2);
+        $this->setLinePosition(4,"page4.2",159,59,250, 2);
+        $this->setLinePosition(4,"page4.2",160,74,250, 2);
+        $this->setLinePosition(4,"page4.2",161,89,250, 2);
+        $this->setLinePosition(4,"page4.2",162,110.5,250, 2);
+        $this->setLinePosition(4,"page4.2",163,125.5,250, 2);
+        $this->setLinePosition(4,"page4.2",164,140.5,250, 2);
+        $this->setLinePosition(4,"page4.2",165,162,250, 2);
+        $this->setLinePosition(4,"page4.2",166,177,250, 2);
+        $this->setLinePosition(4,"page4.2",167,192,250, 2);
 
 
 
@@ -112,18 +307,53 @@ class IPTemplate
     }
 
     private function writeDataToPage($data){
-        for($page=1 ; $page<=3; $page++) {
-            $this->pdf->AddPage();
-
-            $this->pdf->Image("images/IP_0".$page.".jpg", 0, 0, 210, 297, 'JPG', null, '', true, 300, '', false, false, 1, false, false, false);
-            foreach ($data as $lineid => $text) {
-                if (isset($this->linePosition[$page][$lineid]) ) {
-                    $textArray = $this->mb_str_split($text);
-                    $this->printLines($page, $lineid, $textArray);
-                }
+        for($page=1 ; $page<=4; $page++) {
+            switch($page){
+                case 1:
+                case 2:
+                case 3:
+                    $this->pagesFromOnetoThree($page, $data);
+                    break;
+                case 4:
+                    $this->pageFour($page, $data);
             }
         }
 
+    }
+    private function pageFour($page, $data){
+        $this->addNewPage($page);
+        foreach ($data as $lineid => $text) {
+            if (isset($this->linePosition[$page][$lineid]) ) {
+                if(is_array($text)){
+                    $fullString="";
+                    foreach($text as $key=>$text){
+                        $fullString.=$text;
+                    }
+                    $text=$fullString;
+                }
+                   $removedDot = str_replace (".","",$text);
+                   $textArray = $this->mb_str_split($removedDot);
+                   $this->printLines($page, $lineid, $textArray);
+
+            }
+        }
+
+    }
+
+
+    private function addNewPage($page){
+        $this->pdf->AddPage();
+        $this->pdf->Image("images/IP_0".$page.".jpg", 0, 0, 210, 297, 'JPG', null, '', true, 300, '', false, false, 1, false, false, false);
+    }
+    private function pagesFromOnetoThree($page, $data){
+        $this->pageNumber++;
+        $this->addNewPage($page);
+        foreach ($data as $lineid => $text) {
+            if (isset($this->linePosition[$page][$lineid]) ) {
+                $textArray = $this->mb_str_split($text);
+                $this->printLines($page, $lineid, $textArray);
+            }
+        }
     }
     private function printLines($page , $lineid , $textArray){
         $inlineStartPosition = 0;
@@ -178,194 +408,11 @@ class IPTemplate
 
 
 
-            $this->setLinePosition(4,"pagenamber4",118.2,12.2, 3);
-
-            $this->setLinePosition(4,"page4.1",77,61.5, 2);
-            $this->setLinePosition(4,"page4.2",92,61.5, 2);
-            $this->setLinePosition(4,"page4.3",107,61.5, 2);
 
 
-            $this->setLinePosition(4,"page4.2.1.1.1",7.5,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.1.2",22.5,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.1.3",37.5,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.2.1",59,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.2.2",74,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.2.3",89,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.3.1",110.5,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.3.2",125.5,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.3.3",140.5,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.4.1",162,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.4.2",177,83.5, 2);
-            $this->setLinePosition(4,"page4.2.1.4.3",192,83.5, 2);
 
-            $this->setLinePosition(4,"page4.2.2.1.1",7.5,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.1.2",22.5,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.1.3",37.5,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.2.1",59,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.2.2",74,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.2.3",89,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.3.1",110.5,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.3.2",125.5,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.3.3",140.5,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.4.1",162,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.4.2",177,96.3, 2);
-            $this->setLinePosition(4,"page4.2.2.4.3",192,96.3, 2);
 
-            $this->setLinePosition(4,"page4.2.3.1.1",7.5,109, 2);
-            $this->setLinePosition(4,"page4.2.3.1.2",22.5,109, 2);
-            $this->setLinePosition(4,"page4.2.3.1.3",37.5,109, 2);
-            $this->setLinePosition(4,"page4.2.3.2.1",59,109, 2);
-            $this->setLinePosition(4,"page4.2.3.2.2",74,109, 2);
-            $this->setLinePosition(4,"page4.2.3.2.3",89,109, 2);
-            $this->setLinePosition(4,"page4.2.3.3.1",110.5,109, 2);
-            $this->setLinePosition(4,"page4.2.3.3.2",125.5,109, 2);
-            $this->setLinePosition(4,"page4.2.3.3.3",140.5,109, 2);
-            $this->setLinePosition(4,"page4.2.3.4.1",162,109, 2);
-            $this->setLinePosition(4,"page4.2.3.4.2",177,109, 2);
-            $this->setLinePosition(4,"page4.2.3.4.3",192,109, 2);
 
-            $this->setLinePosition(4,"page4.2.4.1.1",7.5,122, 2);
-            $this->setLinePosition(4,"page4.2.4.1.2",22.5,122, 2);
-            $this->setLinePosition(4,"page4.2.4.1.3",37.5,122, 2);
-            $this->setLinePosition(4,"page4.2.4.2.1",59,122, 2);
-            $this->setLinePosition(4,"page4.2.4.2.2",74,122, 2);
-            $this->setLinePosition(4,"page4.2.4.2.3",89,122, 2);
-            $this->setLinePosition(4,"page4.2.4.3.1",110.5,122, 2);
-            $this->setLinePosition(4,"page4.2.4.3.2",125.5,122, 2);
-            $this->setLinePosition(4,"page4.2.4.3.3",140.5,122, 2);
-            $this->setLinePosition(4,"page4.2.4.4.1",162,122, 2);
-            $this->setLinePosition(4,"page4.2.4.4.2",177,122, 2);
-            $this->setLinePosition(4,"page4.2.4.4.3",192,122, 2);
-
-            $this->setLinePosition(4,"page4.2.5.1.1",7.5,135, 2);
-            $this->setLinePosition(4,"page4.2.5.1.2",22.5,135, 2);
-            $this->setLinePosition(4,"page4.2.5.1.3",37.5,135, 2);
-            $this->setLinePosition(4,"page4.2.5.2.1",59,135, 2);
-            $this->setLinePosition(4,"page4.2.5.2.2",74,135, 2);
-            $this->setLinePosition(4,"page4.2.5.2.3",89,135, 2);
-            $this->setLinePosition(4,"page4.2.5.3.1",110.5,135, 2);
-            $this->setLinePosition(4,"page4.2.5.3.2",125.5,135, 2);
-            $this->setLinePosition(4,"page4.2.5.3.3",140.5,135, 2);
-            $this->setLinePosition(4,"page4.2.5.4.1",162,135, 2);
-            $this->setLinePosition(4,"page4.2.5.4.2",177,135, 2);
-            $this->setLinePosition(4,"page4.2.5.4.3",192,135, 2);
-
-            $this->setLinePosition(4,"page4.2.6.1.1",7.5,147, 2);
-            $this->setLinePosition(4,"page4.2.6.1.2",22.5,147, 2);
-            $this->setLinePosition(4,"page4.2.6.1.3",37.5,147, 2);
-            $this->setLinePosition(4,"page4.2.6.2.1",59,147, 2);
-            $this->setLinePosition(4,"page4.2.6.2.2",74,147, 2);
-            $this->setLinePosition(4,"page4.2.6.2.3",89,147, 2);
-            $this->setLinePosition(4,"page4.2.6.3.1",110.5,147, 2);
-            $this->setLinePosition(4,"page4.2.6.3.2",125.5,147, 2);
-            $this->setLinePosition(4,"page4.2.6.3.3",140.5,147, 2);
-            $this->setLinePosition(4,"page4.2.6.4.1",162,147, 2);
-            $this->setLinePosition(4,"page4.2.6.4.2",177,147, 2);
-            $this->setLinePosition(4,"page4.2.6.4.3",192,147, 2);
-
-            $this->setLinePosition(4,"page4.2.7.1.1",7.5,160, 2);
-            $this->setLinePosition(4,"page4.2.7.1.2",22.5,160, 2);
-            $this->setLinePosition(4,"page4.2.7.1.3",37.5,160, 2);
-            $this->setLinePosition(4,"page4.2.7.2.1",59,160, 2);
-            $this->setLinePosition(4,"page4.2.7.2.2",74,160, 2);
-            $this->setLinePosition(4,"page4.2.7.2.3",89,160, 2);
-            $this->setLinePosition(4,"page4.2.7.3.1",110.5,160, 2);
-            $this->setLinePosition(4,"page4.2.7.3.2",125.5,160, 2);
-            $this->setLinePosition(4,"page4.2.7.3.3",140.5,160, 2);
-            $this->setLinePosition(4,"page4.2.7.4.1",162,160, 2);
-            $this->setLinePosition(4,"page4.2.7.4.2",177,160, 2);
-            $this->setLinePosition(4,"page4.2.7.4.3",192,160, 2);
-
-            $this->setLinePosition(4,"page4.2.8.1.1",7.5,173, 2);
-            $this->setLinePosition(4,"page4.2.8.1.2",22.5,173, 2);
-            $this->setLinePosition(4,"page4.2.8.1.3",37.5,173, 2);
-            $this->setLinePosition(4,"page4.2.8.2.1",59,173, 2);
-            $this->setLinePosition(4,"page4.2.8.2.2",74,173, 2);
-            $this->setLinePosition(4,"page4.2.8.2.3",89,173, 2);
-            $this->setLinePosition(4,"page4.2.8.3.1",110.5,173, 2);
-            $this->setLinePosition(4,"page4.2.8.3.2",125.5,173, 2);
-            $this->setLinePosition(4,"page4.2.8.3.3",140.5,173, 2);
-            $this->setLinePosition(4,"page4.2.8.4.1",162,173, 2);
-            $this->setLinePosition(4,"page4.2.8.4.2",177,173, 2);
-            $this->setLinePosition(4,"page4.2.8.4.3",192,173, 2);
-
-            $this->setLinePosition(4,"page4.2.9.1.1",7.5,186, 2);
-            $this->setLinePosition(4,"page4.2.9.1.2",22.5,186, 2);
-            $this->setLinePosition(4,"page4.2.9.1.3",37.5,186, 2);
-            $this->setLinePosition(4,"page4.2.9.2.1",59,186, 2);
-            $this->setLinePosition(4,"page4.2.9.2.2",74,186, 2);
-            $this->setLinePosition(4,"page4.2.9.2.3",89,186, 2);
-            $this->setLinePosition(4,"page4.2.9.3.1",110.5,186, 2);
-            $this->setLinePosition(4,"page4.2.9.3.2",125.5,186, 2);
-            $this->setLinePosition(4,"page4.2.9.3.3",140.5,186, 2);
-            $this->setLinePosition(4,"page4.2.9.4.1",162,186, 2);
-            $this->setLinePosition(4,"page4.2.9.4.2",177,186, 2);
-            $this->setLinePosition(4,"page4.2.9.4.3",192,186, 2);
-
-            $this->setLinePosition(4,"page4.2.10.1.1",7.5,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.1.2",22.5,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.1.3",37.5,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.2.1",59,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.2.2",74,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.2.3",89,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.3.1",110.5,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.3.2",125.5,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.3.3",140.5,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.4.1",162,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.4.2",177,198.5, 2);
-            $this->setLinePosition(4,"page4.2.10.4.3",192,198.5, 2);
-
-            $this->setLinePosition(4,"page4.2.11.1.1",7.5,211, 2);
-            $this->setLinePosition(4,"page4.2.11.1.2",22.5,211, 2);
-            $this->setLinePosition(4,"page4.2.11.1.3",37.5,211, 2);
-            $this->setLinePosition(4,"page4.2.11.2.1",59,211, 2);
-            $this->setLinePosition(4,"page4.2.11.2.2",74,211, 2);
-            $this->setLinePosition(4,"page4.2.11.2.3",89,211, 2);
-            $this->setLinePosition(4,"page4.2.11.3.1",110.5,211, 2);
-            $this->setLinePosition(4,"page4.2.11.3.2",125.5,211, 2);
-            $this->setLinePosition(4,"page4.2.11.3.3",140.5,211, 2);
-            $this->setLinePosition(4,"page4.2.11.4.1",162,211, 2);
-            $this->setLinePosition(4,"page4.2.11.4.2",177,211, 2);
-            $this->setLinePosition(4,"page4.2.11.4.3",192,211, 2);
-
-            $this->setLinePosition(4,"page4.2.12.1.1",7.5,224, 2);
-            $this->setLinePosition(4,"page4.2.12.1.2",22.5,224, 2);
-            $this->setLinePosition(4,"page4.2.12.1.3",37.5,224, 2);
-            $this->setLinePosition(4,"page4.2.12.2.1",59,224, 2);
-            $this->setLinePosition(4,"page4.2.12.2.2",74,224, 2);
-            $this->setLinePosition(4,"page4.2.12.2.3",89,224, 2);
-            $this->setLinePosition(4,"page4.2.12.3.1",110.5,224, 2);
-            $this->setLinePosition(4,"page4.2.12.3.2",125.5,224, 2);
-            $this->setLinePosition(4,"page4.2.12.3.3",140.5,224, 2);
-            $this->setLinePosition(4,"page4.2.12.4.1",162,224, 2);
-            $this->setLinePosition(4,"page4.2.12.4.2",177,224, 2);
-            $this->setLinePosition(4,"page4.2.12.4.3",192,224, 2);
-
-            $this->setLinePosition(4,"page4.2.13.1.1",7.5,237, 2);
-            $this->setLinePosition(4,"page4.2.13.1.2",22.5,237, 2);
-            $this->setLinePosition(4,"page4.2.13.1.3",37.5,237, 2);
-            $this->setLinePosition(4,"page4.2.13.2.1",59,237, 2);
-            $this->setLinePosition(4,"page4.2.13.2.2",74,237, 2);
-            $this->setLinePosition(4,"page4.2.13.2.3",89,237, 2);
-            $this->setLinePosition(4,"page4.2.13.3.1",110.5,237, 2);
-            $this->setLinePosition(4,"page4.2.13.3.2",125.5,237, 2);
-            $this->setLinePosition(4,"page4.2.13.3.3",140.5,237, 2);
-            $this->setLinePosition(4,"page4.2.13.4.1",162,237, 2);
-            $this->setLinePosition(4,"page4.2.13.4.2",177,237, 2);
-            $this->setLinePosition(4,"page4.2.13.4.3",192,237, 2);
-
-            $this->setLinePosition(4,"page4.2.14.1.1",7.5,250, 2);
-            $this->setLinePosition(4,"page4.2.14.1.2",22.5,250, 2);
-            $this->setLinePosition(4,"page4.2.14.1.3",37.5,250, 2);
-            $this->setLinePosition(4,"page4.2.14.2.1",59,250, 2);
-            $this->setLinePosition(4,"page4.2.14.2.2",74,250, 2);
-            $this->setLinePosition(4,"page4.2.14.2.3",89,250, 2);
-            $this->setLinePosition(4,"page4.2.14.3.1",110.5,250, 2);
-            $this->setLinePosition(4,"page4.2.14.3.2",125.5,250, 2);
-            $this->setLinePosition(4,"page4.2.14.3.3",140.5,250, 2);
-            $this->setLinePosition(4,"page4.2.14.4.1",162,250, 2);
-            $this->setLinePosition(4,"page4.2.14.4.2",177,250, 2);
-            $this->setLinePosition(4,"page4.2.14.4.3",192,250, 2);
 
             $this->setLinePosition(5,"pagenamber5",118.2,12.2, 3);
             $this->setLinePosition(5,"1",20.3,81.5, 1);
