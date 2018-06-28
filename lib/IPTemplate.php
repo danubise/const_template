@@ -103,9 +103,9 @@ class IPTemplate
 
         $this->setLinePosition(4,"pagenamber4",118.2,12.2, 3);
 
-        $this->setLinePosition(4,"page4.1",77,61.5, 2);
-        $this->setLinePosition(4,"page4.2",92,61.5, 2);
-        $this->setLinePosition(4,"page4.3",107,61.5, 2);
+        $this->setLinePosition(4,"page4.1.1",77,61.5, 2);
+        $this->setLinePosition(4,"page4.1.2",92,61.5, 2);
+        $this->setLinePosition(4,"page4.1.3",107,61.5, 2);
 
 
         $this->setLinePosition(4,"page4.2.1.1.1",7.5,83.5, 2);
@@ -299,14 +299,14 @@ class IPTemplate
 
 
         $this->setLinePosition(5,"pagenamber5",118.2,12.2, 3);
-        $this->setLinePosition(5,"1",20.3,81.5, 1);
+        $this->setLinePosition(5,"page5.1",20.3,81.5, 1);
 
-        $this->setLinePosition(5,"telephone",72.5,99.5, 20);
+        $this->setLinePosition(5,"page5.telephone",72.5,99.5, 20);
 
-        $this->setLinePosition(5,"email",23.1,109.5, 35);
+        $this->setLinePosition(5,"page5.email",23.1,109.5, 35);
 
-        $this->setLinePosition(5,"3.1",20.5,179, 1);
-        $this->setLinePosition(5,"3.2",119,195.6, 12);
+        $this->setLinePosition(5,"page5.3.1",20.5,179, 1);
+        $this->setLinePosition(5,"page5.3.2",119,195.6, 12);
 
 
 
