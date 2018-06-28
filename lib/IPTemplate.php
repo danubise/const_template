@@ -439,10 +439,6 @@ class IPTemplate
         $this->pdf->SetFont('couriercyrillic_12144', '', 18, '', true);
 
     }
-    private function loadPosition(){
-
-
-    }
 
 }
 
