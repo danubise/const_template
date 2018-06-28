@@ -313,15 +313,34 @@ class IPTemplate
                 case 2:
                 case 3:
                     $this->pagesFromOnetoThree($page, $data);
+
                     break;
                 case 4:
-                    $this->pageFour($page, $data);
+
+                        $respond = $this->pageFour($page, $data);
+
+                        if($respond['startFrom'] > -1 ){
+                            do{
+                                $this->pdf->lastPage();
+                                $newstring = substr($respond['data'], $respond['startFrom']);
+                                $newdata = array('pagenamber4' => "" , 'page4.2' => $newstring);
+
+                                $respond = $this->pageFour(4 , $newdata);
+
+                            }while($respond['startFrom'] > -1);
+                        }
+
             }
         }
 
     }
     private function pageFour($page, $data){
+        if($this->pageNumber == 8 ) return;
         $this->addNewPage($page);
+        $this->pageNumber++;
+
+        $data['pagenamber4'] = sprintf("%03d", $this->pageNumber);
+        $removedDot = "";
         foreach ($data as $lineid => $text) {
             if (isset($this->linePosition[$page][$lineid]) ) {
                 if(is_array($text)){
@@ -331,12 +350,12 @@ class IPTemplate
                     }
                     $text=$fullString;
                 }
-                   $removedDot = str_replace (".","",$text);
-                   $textArray = $this->mb_str_split($removedDot);
-                   $this->printLines($page, $lineid, $textArray);
-
+                $removedDot = str_replace (".","",$text);
+                $textArray = $this->mb_str_split($removedDot);
+                $inlineStartPosition = $this->printLines($page, $lineid, $textArray);
             }
         }
+        return array("startFrom" => $inlineStartPosition, "data" => $removedDot );
 
     }
 
@@ -364,6 +383,7 @@ class IPTemplate
                 break;
             }
         }
+        return $inlineStartPosition;
     }
 
     private function printOneLine($linePosition , $textArray, $inlineStartPosition){
@@ -404,15 +424,6 @@ class IPTemplate
 
     }
     private function loadPosition(){
-
-
-
-
-
-
-
-
-
 
             $this->setLinePosition(5,"pagenamber5",118.2,12.2, 3);
             $this->setLinePosition(5,"1",20.3,81.5, 1);
