@@ -353,7 +353,7 @@ class IPTemplate
     private function pageFour($page, $data){
         if($this->pageNumber == 8 ) return;
         $this->addNewPage($page);
-        $this->pageNumber++;
+
 
         $data['pagenamber4'] = sprintf("%03d", $this->pageNumber);
         $removedDot = "";
@@ -377,11 +377,11 @@ class IPTemplate
 
 
     private function addNewPage($page){
+        $this->pageNumber++;
         $this->pdf->AddPage();
         $this->pdf->Image("images/IP_0".$page.".jpg", 0, 0, 210, 297, 'JPG', null, '', true, 300, '', false, false, 1, false, false, false);
     }
     private function pagesFromOnetoThree($page, $data){
-        $this->pageNumber++;
         $this->addNewPage($page);
         foreach ($data as $lineid => $text) {
             if (isset($this->linePosition[$page][$lineid]) ) {
