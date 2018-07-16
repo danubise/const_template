@@ -33,66 +33,66 @@ class IPTemplate
         $this->setLinePosition(1,"4.2",0, 5.7,178.4, 40);
         $this->setLinePosition(1,"4.2",1, 5.5,186.8, 40);
 
-        $this->setLinePosition(1,"5,1",0, 103,223.3, 3);
+        $this->setLinePosition(1,"5.1",0, 103,223.3, 3);
         $this->setLinePosition(1,"5",0,40.5,207.7, 1);
 
-        $this->setLinePosition(2,"6,1",0,45,47, 6);
-        $this->setLinePosition(2,"6,2",0,144,47, 2);
-        $this->setLinePosition(2,"6,3,1",0,5.3,63, 10);
-        $this->setLinePosition(2,"6,3,2",0,64.5,63, 28);
-        $this->setLinePosition(2,"6,3,2",1,5.3,72.7, 40);
+        $this->setLinePosition(2,"6.1",0,45,47, 6);
+        $this->setLinePosition(2,"6.2",0,144,47, 2);
+        $this->setLinePosition(2,"6.3.1",0,5.3,63, 10);
+        $this->setLinePosition(2,"6.3.2",0,64.5,63, 28);
+        $this->setLinePosition(2,"6.3.2",1,5.3,72.7, 40);
 
-        $this->setLinePosition(2,"6,4,1",0,5.3,87.5, 10);
-        $this->setLinePosition(2,"6,4,2",0,64.5,87.5, 28);
+        $this->setLinePosition(2,"6.4.1",0,5.3,87.5, 10);
+        $this->setLinePosition(2,"6.4.2",0,64.5,87.5, 28);
 
-        $this->setLinePosition(2,"6,5,1",0,5.3,102.1, 10);
-        $this->setLinePosition(2,"6,5,2",0,64.5,102.1, 28);
-        $this->setLinePosition(2,"6,5,2",1,5.3,111.8, 40);
+        $this->setLinePosition(2,"6.5.1",0,5.3,102.1, 10);
+        $this->setLinePosition(2,"6.5.2",0,64.5,102.1, 28);
+        $this->setLinePosition(2,"6.5.2",1,5.3,111.8, 40);
 
-        $this->setLinePosition(2,"6,6,1",0,5.3,126.2, 10);
-        $this->setLinePosition(2,"6,6,2",0,65,126.2, 28);
-        $this->setLinePosition(2,"6,6,2",1,5.3,136, 40);
+        $this->setLinePosition(2,"6.6.1",0,5.3,126.2, 10);
+        $this->setLinePosition(2,"6.6.2",0,65,126.2, 28);
+        $this->setLinePosition(2,"6.6.2",1,5.3,136, 40);
 
-        $this->setLinePosition(2,"6,7,1",0,5.3,150, 10);
-        $this->setLinePosition(2,"6,7,2",0,60.5,150, 8);
+        $this->setLinePosition(2,"6.7.1",0,5.3,150, 10);
+        $this->setLinePosition(2,"6.7.2",0,60.5,150, 8);
 
-        $this->setLinePosition(2,"6,8,1",0,108.5,150, 10);
-        $this->setLinePosition(2,"6,8,2",0,163.7,150, 8);
+        $this->setLinePosition(2,"6.8.1",0,108.5,150, 10);
+        $this->setLinePosition(2,"6.8.2",0,163.7,150, 8);
 
-        $this->setLinePosition(2,"6,9,1",0,60.5,160, 8);
-        $this->setLinePosition(2,"6,9,2",0,163.7,160, 8);
+        $this->setLinePosition(2,"6.9.1",0,60.5,160, 8);
+        $this->setLinePosition(2,"6.9.2",0,163.7,160, 8);
 
-        $this->setLinePosition(2,"7,1",0,40.5,184.3, 2);
+        $this->setLinePosition(2,"7.1",0,40.5,184.3, 2);
 
-        $this->setLinePosition(2,"7,2",0,56,199, 25);
+        $this->setLinePosition(2,"7.2",0,56,199, 25);
 
-        $this->setLinePosition(2,"7,3,1",0,35.3,209.1, 2);
-        $this->setLinePosition(2,"7,3,2",0,50,209.1, 2);
-        $this->setLinePosition(2,"7,3,3",0,65,209.1, 4);
+        $this->setLinePosition(2,"7.3.1",0,35.3,209.1, 2);
+        $this->setLinePosition(2,"7.3.2",0,50,209.1, 2);
+        $this->setLinePosition(2,"7.3.3",0,65,209.1, 4);
 
-        $this->setLinePosition(2,"7,4",0,34.8,220, 34);
-        $this->setLinePosition(2,"7,4",1,5.2,230, 40);
-        $this->setLinePosition(2,"7,4",2,5.2,240, 40);
+        $this->setLinePosition(2,"7.4",0,34.8,220, 34);
+        $this->setLinePosition(2,"7.4",1,5.2,230, 40);
+        $this->setLinePosition(2,"7.4",2,5.2,240, 40);
 
-        $this->setLinePosition(2,"7,5,1",0,44.8,251.5, 3);
-        $this->setLinePosition(2,"7,5,2",0,64.5,251.5, 3);
+        $this->setLinePosition(2,"7.5.1",0,44.8,251.5, 3);
+        $this->setLinePosition(2,"7.5.2",0,64.5,251.5, 3);
 
 
-        $this->setLinePosition(3,"8,1",0,20.3,58, 1);
+        $this->setLinePosition(3,"8.1",0,20.3,58, 1);
 
-        $this->setLinePosition(3,"8,2",0,46,70.7, 25);
+        $this->setLinePosition(3,"8.2",0,46,70.7, 25);
 
-        $this->setLinePosition(3,"8,3,1",0,36,83.7, 2);
-        $this->setLinePosition(3,"8,3,2",0,51,83.7, 2);
-        $this->setLinePosition(3,"8,3,3",0,65.7,83.7, 4);
+        $this->setLinePosition(3,"8.3.1",0,36,83.7, 2);
+        $this->setLinePosition(3,"8.3.2",0,51,83.7, 2);
+        $this->setLinePosition(3,"8.3.3",0,65.7,83.7, 4);
 
-        $this->setLinePosition(3,"8,4",0,35.5,95, 34);
-        $this->setLinePosition(3,"8,4",1,6.2,104.2, 40);
-        $this->setLinePosition(3,"8,4",2,6.2,113.5, 40);
+        $this->setLinePosition(3,"8.4",0,35.5,95, 34);
+        $this->setLinePosition(3,"8.4",1,6.2,104.2, 40);
+        $this->setLinePosition(3,"8.4",2,6.2,113.5, 40);
 
-        $this->setLinePosition(3,"8,5,1",0,41.3,126.8, 2);
-        $this->setLinePosition(3,"8,5,2",0,56,126.8, 2);
-        $this->setLinePosition(3,"8,5,3",0,71,126.8, 4);
+        $this->setLinePosition(3,"8.5.1",0,41.3,126.8, 2);
+        $this->setLinePosition(3,"8.5.2",0,56,126.8, 2);
+        $this->setLinePosition(3,"8.5.3",0,71,126.8, 4);
 
         $this->setLinePosition(4,"pagenamber4",0,118.2,12.2, 3);
 
