@@ -128,7 +128,7 @@ class PDFMerger
 					$orientation = ($size['h'] > $size['w']) ? 'P' : 'L';
 
                     $this->fpdi->AddPage($orientation, array($size['w'], $size['h']));
-
+                    $this->fpdi->SetAutoPageBreak(false);
                     $this->fpdi->useTemplate($template);
                     $this->fpdi->SetMargins(10,20,0,true);
                     $this->fpdi->SetFont('couriercyrillic_12144', '', 18, '', true);
