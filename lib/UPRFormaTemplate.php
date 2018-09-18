@@ -25,15 +25,15 @@ class UPRFormaTemplate
         $this->setLinePosition(1,"FIODATA",3, 5.5,76.5, 40);
         $this->setLinePosition(1,"PEREHODIT",0, 89,89, 1);
         $this->setLinePosition(1,"1YANVAR",0, 48,97.5, 2);
-        $this->setLinePosition(1,"2POSTANOVKAMONTH",0, 161,97.5, 2);
         $this->setLinePosition(1,"2POSTANOVKAYEAR",0, 186,97.5, 2);
         $this->setLinePosition(1,"OBEKT",0, 78.5,108, 1);
+        $this->setLinePosition(1,"2POSTANOVKAMONTH",0, 161,97.5, 2);
 
         $this->setLinePosition(1,"GODVIDACH",0, 138.5,121, 2);
         $this->setLinePosition(1,"DOHODI",0, 105.5,130.5, 9);
         $this->setLinePosition(1,"1OKTOBER",0, 145.5,140.5, 9);
         $this->setLinePosition(1,"COPYLISTCOUNT",0, 125.8,150, 3);
-        //Налогоплательщик или представитель налогоплательщика
+        //                                                                                                                                                                                 vcccccc
         $this->setLinePosition(1,"USERTYPE",0, 23.8,162, 1);
         $this->setLinePosition(1,"FIODATA2",0, 5.8,170, 20);
         $this->setLinePosition(1,"FIODATA2",1, 5.8,178, 20);
