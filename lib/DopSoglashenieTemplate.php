@@ -5,12 +5,13 @@
  * Date: 17.09.18
  * Time: 12:54
  */
+
 class DopSoglashenieTemplate{
     private $pdf = null;
     public function showPDF($data){
         $this->createPDF();
         $this->writeDataToPage($data);
-        $this->pdf->Output('example_001.pdf', 'I');
+        $this->pdf->Output('dopsoglashenie.pdf', 'I');
 
     }
     private function createPDF(){
@@ -29,10 +30,14 @@ class DopSoglashenieTemplate{
         $this->pdf->setFontSubsetting(true);
 
         $this->pdf->SetFont('couriercyrillic_12144', '', 18, '', true);
+        $this->pdf->AddPage();
+
 
     }
     private function writeDataToPage($data){
-        $this->pdf->Write(10, $data);
+        //$this->pdf->
+        $this->pdf->writeHTML($data, true, false, true, false, '');
+
 
     }
 }

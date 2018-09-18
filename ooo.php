@@ -286,20 +286,20 @@ $data = array(
     )
 );
 
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '1', $data['page1']);
-//
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '2', $data['page2']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '3', $data['page3']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '4', $data['page4']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '5', $data['page5']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '6', $data['page6']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '7', $data['page7']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '8', $data['page8']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '9', $data['page9']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '10', $data['page10']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '11', $data['page11']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '12', $data['page12']);
-//$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '13', $data['page13']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '1', $data['page1']);
+
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '2', $data['page2']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '3', $data['page3']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '4', $data['page4']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '5', $data['page5']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '6', $data['page6']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '7', $data['page7']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '8', $data['page8']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '9', $data['page9']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '10', $data['page10']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '11', $data['page11']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '12', $data['page12']);
+$pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '13', $data['page13']);
 $pdf->addPDF('/var/www/html/ip/forma_registratsii_OOO.pdf', '14', $data['page14']);
 
 

@@ -3,10 +3,9 @@
 setlocale(LC_CTYPE, 'POSIX');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once ('./lib/PDFMerger-master/PDFMerger.php');
-require_once ('./lib/PDFMerger-master/tcpdf/tcpdi.php');
-require_once ('./lib/PDFMerger-master/tcpdf/tcpdf.php');
-$pdf = new PDFMerger(); // or use $pdf = new \PDFMerger; for Laravel
+require_once('lib/TCPDF/tcpdf.php');
+require_once ('./lib/DopSoglashenieTemplate.php');
+
 
 $data['1.1.1'] = "АЛАБЕРГЕНОВ";
 $data['1.1.2'] = "АЛАБЕРГЕН";
@@ -24,6 +23,17 @@ $data['4.1.1'] = "11";
 $data['4.1.2'] = "11";
 $data['4.1.3'] = "2011";
 $data['4.2'] = "ГОРОД ТАМБОВ, УЛ.АСТРАХАНСКАЯ:(МАЛЫЙ ПЕРЕУЛОК) Д.234/38, КВ.43";
+
+$data['7.2'] = "6321 23456789456678123456";
+$data['7.3.1'] = "58";
+$data['7.3.2'] = "46";
+$data['7.3.3'] = "1234";
+$data['7.4'] = "АБВГДЕЖЗИ ОООООООООООО ТУФХЦЧШЩЪЫЬЭЮЯ 64ПАИСПИВ6586ОПР ЧВТК5ТВПЫМЫ3 3 РАВПАНКНРРП АВКНКИМРТОТЕТМ 5 ПМТРИГ ОВВПРСЧОЛОРПВРИАВТЫВА";
+
+$data['telephone'] = "+7(987) 432-34-67";
+
+$data['email'] = "AHS-BRF_HV.NFJF123RHY@GMAIL.COM";
+
 $staticData[0]['agentName']="Индивидуальному Предпринимателю Фролову Александру Николаевичу";
 $staticData[0]['OGRN']="318645100032480";
 $staticData[0]['agentCity']="г. Саратов";
@@ -84,5 +94,16 @@ $p9="________________________(".$data['1.1.1']." " .$data['1.1.2']." ".$data['1.
 ";
 
 $dopSogl = new DopSoglashenieTemplate();
-$dopSogl->showPDF($p1);
+$html="<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <title>Согласие субъекта на обработку его персональных данных</title>
+</head>
+<body>
+<center><h4>Согласие субъекта на обработку его персональных данных</h4></center>
+Я, Иванов Иван Иванович, г. Саратов ул. Лунная, дом 10 кв 11, паспорт 6311 787654,  дата выдачи 01.01.2018 г, выдан Отделом УФМС России по Саратовской области в Ленинском районе  г. Саратова),  настоящим даю свое согласие Индивидуальному Предпринимателю Фролову Александру Николаевичу ОГРН/ОГРНИП 318645100032480
+, расположенному по адресу: г. Саратов
+</body>
+</html>";
+$dopSogl->showPDF($html);
 ?>
