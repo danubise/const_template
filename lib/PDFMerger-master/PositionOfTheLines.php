@@ -46,6 +46,12 @@ class PositionOfTheLines
             case 12:
                 return $this->page12();
                 break;
+            case 13:
+                return $this->page13();
+                break;
+            case 14:
+                return $this->page14();
+                break;
 
         }
     }
@@ -367,6 +373,77 @@ class PositionOfTheLines
         $linePosition['6.2.2'][0] = new LinePosition(5.6, 220, 40);
         $linePosition['6.2.2'][1] = new LinePosition(5.6, 228, 40);
         $linePosition['7'][0] = new LinePosition(50.5, 243.5, 20);
+
+
+        return $linePosition;
+    }
+    private function page13(){
+        $linePosition = array();
+        $linePosition['pagenumber'][0] = new LinePosition(118.5, 12.2, 3);
+        $linePosition['1'][0] = new LinePosition(27.5, 39.8, 13);
+        $linePosition['2'][0] = new LinePosition(124, 39.8, 10);
+        $linePosition['3'][0] = new LinePosition(5.3, 58, 40);
+        $linePosition['3'][2] = new LinePosition(5.3, 66, 40);
+        $linePosition['3'][3] = new LinePosition(5.3, 74.3, 40);
+        $linePosition['3'][4] = new LinePosition(5.3, 83, 40);
+        $linePosition['3'][5] = new LinePosition(5.3, 91, 40);
+        $linePosition['3'][6] = new LinePosition(5.3, 99.5, 40);
+        $linePosition['4.1'][0] = new LinePosition(55, 117.5, 3);
+        $linePosition['4.2.1'][0] = new LinePosition(128.5, 117.5, 2);
+        $linePosition['4.2.2'][0] = new LinePosition(143.5, 117.5, 2);
+        $linePosition['4.2.3'][0] = new LinePosition(158, 117.5, 4);
+        $linePosition['4.3'][0] = new LinePosition(55, 132, 25);
+        $linePosition['4.4'][0] = new LinePosition(5.3, 150, 40);
+        $linePosition['4.4'][1] = new LinePosition(5.3, 158, 40);
+        $linePosition['4.4'][2] = new LinePosition(5.3, 166.5, 40);
+        $linePosition['4.4'][3] = new LinePosition(5.3, 174.5, 40);
+        $linePosition['4.5'][0] = new LinePosition(5.3, 191, 40);
+        $linePosition['4.5'][1] = new LinePosition(5.3, 199.5, 40);
+        $linePosition['4.5'][2] = new LinePosition(5.3, 207.5, 40);
+        $linePosition['5'][0] = new LinePosition(5.3, 226.5, 40);
+        $linePosition['5'][1] = new LinePosition(5.3, 235, 40);
+        $linePosition['5'][2] = new LinePosition(5.3, 243, 40);
+        $linePosition['5'][3] = new LinePosition(5.3, 251.5, 40);
+        $linePosition['5'][4] = new LinePosition(5.3, 259.8, 40);
+        $linePosition['5'][5] = new LinePosition(5.3, 268, 40);
+
+
+
+        return $linePosition;
+    }
+    private function page14(){
+        $linePosition = array();
+        $linePosition['pagenumber'][0] = new LinePosition(118.5, 12.2, 3);
+        $linePosition['6.1'][0] = new LinePosition(47.3, 44.7, 6);
+        $linePosition['6.2'][0] = new LinePosition(146, 44.7, 2);
+        $linePosition['6.3.1'][0] = new LinePosition(5.3, 61, 10);
+        $linePosition['6.3.2'][0] = new LinePosition(64.5, 61.3, 28);
+        $linePosition['6.3.2'][1] = new LinePosition(5.3, 69.7, 40);
+        $linePosition['6.4.1'][0] = new LinePosition(5.3, 85.7, 10);
+        $linePosition['6.4.2'][0] = new LinePosition(64.5, 85.7, 28);
+        $linePosition['6.5.1'][0] = new LinePosition(5.3, 100.7, 10);
+        $linePosition['6.5.2'][0] = new LinePosition(64.5, 100.7, 28);
+        $linePosition['6.5.2'][1] = new LinePosition(5.3, 109.5, 40);
+        $linePosition['6.6.1'][0] = new LinePosition(5.3, 125.5, 10);
+        $linePosition['6.6.2'][0] = new LinePosition(65, 125, 28);
+        $linePosition['6.6.2'][1] = new LinePosition(5.3, 134.5, 40);
+        $linePosition['6.7.1'][0] = new LinePosition(5.3, 151.2, 10);
+        $linePosition['6.7.2'][0] = new LinePosition(60.5, 151.2, 8);
+        $linePosition['6.8.1'][0] = new LinePosition(108.5, 151.2, 10);
+        $linePosition['6.8.2'][0] = new LinePosition(163.5, 151.2, 8);
+        $linePosition['6.9.1'][0] = new LinePosition(50.3, 160.5, 10);
+        $linePosition['6.9.2'][0] = new LinePosition(163.5, 160.5, 8);
+        $linePosition['7'][0] = new LinePosition(50.3, 173, 20);
+        $linePosition['8.1.1'][0] = new LinePosition(34.5, 199.7, 34);
+        $linePosition['8.1.2'][0] = new LinePosition(34.5, 209.5, 34);
+        $linePosition['8.1.3'][0] = new LinePosition(34.5, 218.7, 34);
+        $linePosition['8.2'][0] = new LinePosition(45, 229.5, 12);
+        $linePosition['8.3.1.1'][0] = new LinePosition(45, 247.7, 2);
+        $linePosition['8.3.1.2'][0] = new LinePosition(60, 247.7, 2);
+        $linePosition['8.3.1.3'][0] = new LinePosition(74.5, 247.7, 4);
+        $linePosition['8.3.2'][0] = new LinePosition(5.3, 262.5, 40);
+        $linePosition['8.3.2'][1] = new LinePosition(5.3, 270.5, 40);
+
 
 
         return $linePosition;
