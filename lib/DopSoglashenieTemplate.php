@@ -8,12 +8,24 @@
 
 class DopSoglashenieTemplate{
     private $pdf = null;
-    public function showPDF($data){
+
+    /**
+     * DopSoglashenieTemplate constructor.
+     * @param null $pdf
+     */
+    public function __construct()
+    {
         $this->createPDF();
-        $this->writeDataToPage($data);
-        $this->pdf->Output('dopsoglashenie.pdf', 'I');
+    }
+
+    public function writeData($data){
+        $this->pdf->writeHTML($data, true, false, true, false, '');
 
     }
+    public function getPDF(){
+        $this->pdf->Output('dopsoglashenie.pdf', 'I');
+    }
+
     private function createPDF(){
         $this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -25,19 +37,15 @@ class DopSoglashenieTemplate{
 
         $this->pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-        $this->pdf->SetAutoPageBreak(false, PDF_MARGIN_BOTTOM);
-        $this->pdf->SetMargins(10,20,0,true);
+        $this->pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM);
+        $this->pdf->SetMargins(10,10,10,true);
         $this->pdf->setFontSubsetting(true);
-
-        $this->pdf->SetFont('couriercyrillic_12144', '', 18, '', true);
+        $this->pdf->setPrintFooter(false);
+        $this->pdf->setPrintHeader(false);
+       // $this->pdf->SetFont('couriercyrillic_12144', '', 10, '', true);
         $this->pdf->AddPage();
 
 
     }
-    private function writeDataToPage($data){
-        //$this->pdf->
-        $this->pdf->writeHTML($data, true, false, true, false, '');
 
-
-    }
 }
