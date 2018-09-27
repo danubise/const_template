@@ -310,7 +310,18 @@ class IPTemplate
     public function showPDF($data){
         $this->createPDF();
         $this->writeDataToPage($data);
-        $this->pdf->Output('example_001.pdf', 'I');
+        $ownerName="";
+        if(isset($data['1.1.1'])){
+            $ownerName.="_".$data['1.1.1'];
+        }
+        if(isset($data['1.1.2'])){
+            $ownerName.=$data['1.1.2'];
+        }
+        if(isset($data['1.1.3'])){
+            $ownerName.=$data['1.1.3'];
+        }
+        $filename = "РЕГИСТРАЦИЯ_ИП".$ownerName.".pdf";
+        $this->pdf->Output($filename, 'D');
 
     }
 
