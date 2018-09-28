@@ -8,4 +8,5 @@ require_once('lib/IPTemplate.php');
 
 $iptemplate = new IPTemplate();
 
-$iptemplate->showPDF($_POST);
+$filename = $iptemplate->showPDF($_POST);
+echo json_encode(array('fileName' => "http://biznesite.ru/registr-ip/download/".$filename));

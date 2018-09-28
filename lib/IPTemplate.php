@@ -320,8 +320,12 @@ class IPTemplate
         if(isset($data['1.1.3'])){
             $ownerName.=$data['1.1.3'];
         }
-        $filename = "РЕГИСТРАЦИЯ_ИП".$ownerName.".pdf";
-        $this->pdf->Output($filename, 'D');
+        $filename = "РЕГИСТРАЦИЯ_ИП".$ownerName;
+        $hashfilename = md5($filename);
+        $path = "/var/www/biznesite/data/www/biznesite.ru/registr-ip/download/";
+        $this->pdf->Output($path.$hashfilename.".pdf", 'F');
+        return $hashfilename.".pdf";
+
 
     }
 
