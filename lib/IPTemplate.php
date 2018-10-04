@@ -306,6 +306,16 @@ class IPTemplate
         $this->linePosition[$page][$lineId][$index] = new LinePosition($x, $y, $maxCharCount);
 
     }
+    private function pasportFormater($pasportNumber){
+        $newPasportNumber="";
+        for($i=0 ;$i<strlen($pasportNumber); $i++){
+            if($i == 2 && $pasportNumber[2] != " " ){
+                $newPasportNumber.=" ";
+            }
+            $newPasportNumber.=$pasportNumber[$i];
+        }
+        return $newPasportNumber;
+    }
 
     public function showPDF($data){
         $this->createPDF();
@@ -330,6 +340,7 @@ class IPTemplate
     }
 
     private function writeDataToPage($data){
+        $data['7.2'] = $this->pasportFormater($data['7.2']);
         for($page=1 ; $page<=5; $page++) {
             switch($page){
                 case 1:
