@@ -18,6 +18,11 @@ foreach ($_POST as $key => $post) {
     $data[$key] = $post;
     $log->debug( "key='".$key."' => '".$post."'");
 }
+$log->debug("============== OKVED ===============");
+foreach ($data['page4.2'] as $key=>$value){
+
+    $log->debug( "key='".$key."' => '".$value."'");
+}
 
 $filename = $iptemplate->showPDF($data);
 echo json_encode(array('fileName' => "http://biznesite.ru/registr-ip/download/".$filename));

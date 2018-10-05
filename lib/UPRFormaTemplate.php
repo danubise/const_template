@@ -56,8 +56,13 @@ class UPRFormaTemplate
     public function showPDF($data){
         $this->createPDF();
         $this->writeDataToPage($data);
-        $this->pdf->Output('example_001.pdf', 'I');
 
+        $ownerName = $data['FIODATA'];
+        $filename = "УПРАВЩЕНКА".$ownerName;
+        $hashfilename = md5($filename);
+        $path = "/var/www/biznesite/data/www/biznesite.ru/registr-ip/download/";
+        $this->pdf->Output($path.$hashfilename.".pdf", 'F');
+        return $hashfilename.".pdf";
     }
 
     private function writeDataToPage($data){
