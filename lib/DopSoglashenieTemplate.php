@@ -22,8 +22,23 @@ class DopSoglashenieTemplate{
         $this->pdf->writeHTML($data, true, false, true, false, '');
 
     }
-    public function getPDF(){
-        $this->pdf->Output('dopsoglashenie.pdf', 'I');
+    public function getPDF($data){
+        $ownerName="";
+        if(isset($data['1.1.1'])){
+            $ownerName.="_".$data['1.1.1'];
+        }
+        if(isset($data['1.1.2'])){
+            $ownerName.=$data['1.1.2'];
+        }
+        if(isset($data['1.1.3'])){
+            $ownerName.=$data['1.1.3'];
+        }
+        $filename = "ДОПОЛНИТЕЛЬНОЕ_СОГЛАШЕНИЕ".$ownerName;
+        $hashfilename = md5($filename);
+        $path = "/var/www/biznesite/data/www/biznesite.ru/registr-ip/download/";
+        $this->pdf->Output($path.$hashfilename.".pdf", 'F');
+        return $hashfilename.".pdf";
+
     }
 
     private function createPDF(){

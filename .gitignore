@@ -1,2 +1,7 @@
 .idea*
 *~
+internalconfig.php
+log/*
+localconfig.php
+test2.txt
+test4.php

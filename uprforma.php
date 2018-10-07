@@ -1,6 +1,6 @@
 <?php
 setlocale(LC_CTYPE, 'POSIX');
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_NOTICE);
 ini_set('display_errors', 1);
 
 require_once('lib/TCPDF/tcpdf.php');
@@ -10,7 +10,6 @@ require_once ('internalconfig.php');
 date_default_timezone_set('Europe/Samara');
 
 $log = new Log($config);
-$iptemplate = new IPTemplate();
 $log->info("Start IP template");
 $dataPost = array();
 foreach ($_POST as $key => $post) {

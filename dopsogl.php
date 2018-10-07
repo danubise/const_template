@@ -1,40 +1,51 @@
 <?php
 
 setlocale(LC_CTYPE, 'POSIX');
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_NOTICE);
 ini_set('display_errors', 1);
 require_once('lib/TCPDF/tcpdf.php');
 require_once ('./lib/DopSoglashenieTemplate.php');
+require_once ('lib/log.php');
+require_once ('internalconfig.php');
+date_default_timezone_set('Europe/Samara');
 
+$log = new Log($config);
+$log->info("Start IP template");
+$data = array();
+foreach ($_POST as $key => $post) {
+    $key = str_replace("_", ".", $key);
+    $data[$key] = $post;
+    $log->debug( "key='".$key."' => '".$post."'");
+}
 
-$data['1.1.1'] = "АЛАБЕРГЕНОВ";
-$data['1.1.2'] = "АЛАБЕРГЕН";
-$data['1.1.3'] = "АЛЕБЕРГЕН УГЛИ-УМЛИ";
-
-$data['1.2.1'] = "ALABERGENOV";
-$data['1.2.2'] = "ALABERGEN";
-$data['1.2.3'] = "ALABERGEN UGLI-UMLI";
-
-$data['2'] = "123456789108";
-
-$data['3'] = "1";
-
-$data['4.1.1'] = "11";
-$data['4.1.2'] = "11";
-$data['4.1.3'] = "2011";
-$data['4.2'] = "ГОРОД ТАМБОВ, УЛ.АСТРАХАНСКАЯ:(МАЛЫЙ ПЕРЕУЛОК) Д.234/38, КВ.43";
-$data['6.4.1'] = "ГОРОД";
-$data['6.4.2'] = "ТАМБОВ";
-
-$data['7.2'] = "6321 23456789456678123456";
-$data['7.3.1'] = "58";
-$data['7.3.2'] = "46";
-$data['7.3.3'] = "1234";
-$data['7.4'] = "АБВГДЕЖЗИ ОООООООООООО ТУФХЦЧШЩЪЫЬЭЮЯ 64ПАИСПИВ6586ОПР ЧВТК5ТВПЫМЫ3 3 РАВПАНКНРРП АВКНКИМРТОТЕТМ 5 ПМТРИГ ОВВПРСЧОЛОРПВРИАВТЫВА";
-
-$data['telephone'] = "+7(987) 432-34-67";
-
-$data['email'] = "AHS-BRF_HV.NFJF123RHY@GMAIL.COM";
+//$data['1.1.1'] = "АЛАБЕРГЕНОВ";
+//$data['1.1.2'] = "АЛАБЕРГЕН";
+//$data['1.1.3'] = "АЛЕБЕРГЕН УГЛИ-УМЛИ";
+//
+//$data['1.2.1'] = "ALABERGENOV";
+//$data['1.2.2'] = "ALABERGEN";
+//$data['1.2.3'] = "ALABERGEN UGLI-UMLI";
+//
+//$data['2'] = "123456789108";
+//
+//$data['3'] = "1";
+//
+//$data['4.1.1'] = "11";
+//$data['4.1.2'] = "11";
+//$data['4.1.3'] = "2011";
+//$data['4.2'] = "ГОРОД ТАМБОВ, УЛ.АСТРАХАНСКАЯ:(МАЛЫЙ ПЕРЕУЛОК) Д.234/38, КВ.43";
+//$data['6.4.1'] = "ГОРОД";
+//$data['6.4.2'] = "ТАМБОВ";
+//
+//$data['7.2'] = "6321 23456789456678123456";
+//$data['7.3.1'] = "58";
+//$data['7.3.2'] = "46";
+//$data['7.3.3'] = "1234";
+//$data['7.4'] = "АБВГДЕЖЗИ ОООООООООООО ТУФХЦЧШЩЪЫЬЭЮЯ 64ПАИСПИВ6586ОПР ЧВТК5ТВПЫМЫ3 3 РАВПАНКНРРП АВКНКИМРТОТЕТМ 5 ПМТРИГ ОВВПРСЧОЛОРПВРИАВТЫВА";
+//
+//$data['telephone'] = "+7(987) 432-34-67";
+//
+//$data['email'] = "AHS-BRF_HV.NFJF123RHY@GMAIL.COM";
 
 $staticData[0]['agentName']="Индивидуальному Предпринимателю Фролову Александру Николаевичу";
 $staticData[0]['agentName2']="Индивидуальный Предприниматель Фролов Александр Николаевич";
@@ -159,6 +170,6 @@ $html = "
 $dopSogl->writeData($html );
 //$dopSogl->writeData($p5 );
 
-$dopSogl->getPDF();
-
+$filename = $dopSogl->getPDF($data);
+echo json_encode(array('fileName' => "http://biznesite.ru/registr-ip/download/".$filename));
 ?>
