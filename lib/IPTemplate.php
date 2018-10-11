@@ -352,14 +352,18 @@ class IPTemplate
                 case 4:
 
                         $respond = $this->pageFour($page, $data);
+                        $newstring = substr($respond['data'], $respond['startFrom']);
+                        
 
-                        if($respond['startFrom'] > -1 ){
+                        if($respond['startFrom'] > -1 && trim($newstring) != ""){
                             do{
                                 $this->pdf->lastPage();
                                 $newstring = substr($respond['data'], $respond['startFrom']);
                                 $newdata = array('pagenamber4' => "" , 'page4.2' => $newstring);
 
-                                $respond = $this->pageFour(4 , $newdata);
+                                $respond = $this->pageFour(4, $newdata);
+
+
 
                             }while($respond['startFrom'] > -1);
                         }

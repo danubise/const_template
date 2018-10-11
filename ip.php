@@ -16,8 +16,14 @@ $data = array();
 foreach ($_POST as $key => $post) {
     $key = str_replace("_", ".", $key);
     $data[$key] = $post;
-    $log->debug( "key='".$key."' => '".$post."'");
-}
+    if(!is_array($post)){
+        $log->debug( "key='".$key."' => '".$post."'");
+
+    }else{
+        $log->debug("key=".$key);
+        $log->debug($post);
+    }
+    }
 $log->debug("============== OKVED ===============");
 foreach ($data['page4.2'] as $key=>$value){
 
