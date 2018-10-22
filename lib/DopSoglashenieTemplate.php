@@ -57,7 +57,8 @@ class DopSoglashenieTemplate{
         $this->pdf->setFontSubsetting(true);
         $this->pdf->setPrintFooter(false);
         $this->pdf->setPrintHeader(false);
-       // $this->pdf->SetFont('couriercyrillic_12144', '', 10, '', true);
+        //$this->pdf->SetFont('couriercyrillic_12144', '', 18, '', true);
+
         $this->pdf->AddPage();
 
 

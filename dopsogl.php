@@ -1,5 +1,4 @@
 <?php
-
 setlocale(LC_CTYPE, 'POSIX');
 error_reporting(E_ALL & ~E_NOTICE);
 ini_set('display_errors', 1);
@@ -78,7 +77,7 @@ $html = "
     p.first {
         color: black;
         font-family: couriercyrillic_12144;
-        font-size: 11px;
+        font-size: 8px;
     }
     p.first span {
         color: #006600;
@@ -87,7 +86,7 @@ $html = "
     p.second{
         color: black;
         font-family: couriercyrillic_12144;
-        font-size: 10px;
+        font-size: 8px;
     }
 
 
@@ -95,10 +94,10 @@ $html = "
 
 <h1 class=\"title\">Согласие субъекта на обработку его персональных данных</h1>
 
-<p class=\"first\">Я, ".$data['1.1.1']." " .$data['1.1.2']." ".$data['1.1.3'] .", ".$data['4.2'].", паспорт ".$data['7.2'].
+<p class=\"first\"> <small>Я, ".$data['1.1.1']." " .$data['1.1.2']." ".$data['1.1.3'] .", ".$data['4.2'].", паспорт ".$data['7.2'].
     ",  дата выдачи ".$data['7.3.1'].".".$data['7.3.2'].".".$data['7.3.3'].
     " г, выдан ".$data['7.4'].",  настоящим даю свое согласие ". $staticData[0]['agentName']." ОГРН/ОГРНИП ".$staticData[0]['OGRN'].
-    ", расположенному по адресу: ".$agentCompanyData[0]['companyName'].", расположенному по адресу: ".$agentCompanyData[0]['companyAddress']."</p>
+    ", расположенному по адресу: ".$agentCompanyData[0]['companyName'].", расположенному по адресу: ".$agentCompanyData[0]['companyAddress']."</small></p>
     
 
 <br />

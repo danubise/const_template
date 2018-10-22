@@ -5,7 +5,8 @@
  * Date: 20.06.18
  * Time: 17:39
  */
-
+include_once ('LinePosition.php');
+include_once ('CharactersPositionDiviation.php');
 class UPRFormaTemplate
 {
     private $linePosition = array();
@@ -142,35 +143,35 @@ class UPRFormaTemplate
 
 }
 
-class LinePosition{
-    public $x =0;
-    public $y =0;
-    public $maxCharCount =0;
-
-    public function __construct($x,$y, $maxCharCount)
-    {
-        $this->maxCharCount = $maxCharCount - 1 ;
-        $this->x = $x;
-        $this->y = $y;
-
-    }
-}
-
-class CharactersPositionDiviation{
-    private $CharacterBase = array();
-    public function get($character){
-        if(isset($this->CharacterBase[$character])){
-            return $this->CharacterBase[$character];
-        }
-        return 0;
-    }
-    public function __construct()
-    {
-        $this->CharacterBase['А'] = 0;
-        $this->CharacterBase['У'] = 0.3;
-        $this->CharacterBase['Д'] = 0.3;
-        $this->CharacterBase['Ж'] = 0.5;
-
-    }
-
-}
+//class LinePosition{
+//    public $x =0;
+//    public $y =0;
+//    public $maxCharCount =0;
+//
+//    public function __construct($x,$y, $maxCharCount)
+//    {
+//        $this->maxCharCount = $maxCharCount - 1 ;
+//        $this->x = $x;
+//        $this->y = $y;
+//
+//    }
+//}
+//
+//class CharactersPositionDiviation{
+//    private $CharacterBase = array();
+//    public function get($character){
+//        if(isset($this->CharacterBase[$character])){
+//            return $this->CharacterBase[$character];
+//        }
+//        return 0;
+//    }
+//    public function __construct()
+//    {
+//        $this->CharacterBase['А'] = 0;
+//        $this->CharacterBase['У'] = 0.3;
+//        $this->CharacterBase['Д'] = 0.3;
+//        $this->CharacterBase['Ж'] = 0.5;
+//
+//    }
+//
+//}

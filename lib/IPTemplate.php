@@ -392,6 +392,9 @@ class IPTemplate
                 if(is_array($text)){
                     $fullString="";
                     foreach($text as $key=>$text){
+                        if($lineid == "page4.2"){
+                            $text = $this->changeOKVDlen($text);
+                        }
                         $fullString.=$text;
                     }
                     $text=$fullString;
@@ -403,6 +406,17 @@ class IPTemplate
         }
         return array("startFrom" => $inlineStartPosition, "data" => $removedDot );
 
+    }
+    private function changeOKVDlen($okvd){
+        $okvd = str_replace (".","",$okvd);
+        $okvdLen = strlen($okvd);
+        if($okvdLen == 6){
+            return $okvd;
+        }
+        for($i = 0; $i < (6 - $okvdLen) ; $i++){
+            $okvd.=" ";
+        }
+        return $okvd;
     }
 
 
@@ -472,35 +486,35 @@ class IPTemplate
 
 }
 
-class LinePosition{
-    public $x =0;
-    public $y =0;
-    public $maxCharCount =0;
-
-    public function __construct($x,$y, $maxCharCount)
-    {
-        $this->maxCharCount = $maxCharCount - 1 ;
-        $this->x = $x;
-        $this->y = $y;
-
-    }
-}
-
-class CharactersPositionDiviation{
-    private $CharacterBase = array();
-    public function get($character){
-        if(isset($this->CharacterBase[$character])){
-            return $this->CharacterBase[$character];
-        }
-        return 0;
-    }
-    public function __construct()
-    {
-        $this->CharacterBase['А'] = 0;
-        $this->CharacterBase['У'] = 0.3;
-        $this->CharacterBase['Д'] = 0.3;
-        $this->CharacterBase['Ж'] = 0.5;
-
-    }
-
-}
+//class LinePosition{
+//    public $x =0;
+//    public $y =0;
+//    public $maxCharCount =0;
+//
+//    public function __construct($x,$y, $maxCharCount)
+//    {
+//        $this->maxCharCount = $maxCharCount - 1 ;
+//        $this->x = $x;
+//        $this->y = $y;
+//
+//    }
+//}
+//
+//class CharactersPositionDiviation{
+//    private $CharacterBase = array();
+//    public function get($character){
+//        if(isset($this->CharacterBase[$character])){
+//            return $this->CharacterBase[$character];
+//        }
+//        return 0;
+//    }
+//    public function __construct()
+//    {
+//        $this->CharacterBase['А'] = 0;
+//        $this->CharacterBase['У'] = 0.3;
+//        $this->CharacterBase['Д'] = 0.3;
+//        $this->CharacterBase['Ж'] = 0.5;
+//
+//    }
+//
+//}
