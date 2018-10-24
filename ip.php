@@ -13,9 +13,12 @@ require_once ('internalconfig.php');
 require_once ('./lib/DopSoglashenieTemplate.php');
 include_once ('./lib/LinePosition.php');
 include_once ('./lib/CharactersPositionDiviation.php');
+include_once ('lib/NalogPay.php');
+
 $log = new Log($config);
 
 $log->info("Start IP template");
+$log->debug($_SERVER);
 $data = array();
 
 foreach ($_POST as $key => $post) {
@@ -212,7 +215,7 @@ $html = "
 <table>
     <tr>    
         <td>
-<img src=\"".$path."\" width=\"50\" height=\"50\" border=\"0\"> <p class=\"first\">"."________________________(".$data['1.1.1']." " .$data['1.1.2']." ".$data['1.1.3'] .")
+<img src=\"".$path."\" width=\"auto\" height=\"60\" border=\"0\"> <p class=\"first\">"."________________________(".$data['1.1.1']." " .$data['1.1.2']." ".$data['1.1.3'] .")
                        <br \>Подпись
             "."</p> 
         </td>
@@ -248,22 +251,39 @@ $html = "
 </p> 
 ";
 $dopSogl->writeData($html );
-//$dopSogl->writeData($p5 );
 
 $dopfilename = $dopSogl->getPDF($data);
+$np = new NalogPay($data, $log);
+$filenameNalogPlat = $np->process();
+if(!$filenameNalogPlat){
+
+}
+$log->debug($filenameNalogPlat);
+
 $files =json_encode(array(
     array(
-    'title'=>"Форма регистрации ИП",
+    'title'=>"Форма регистрации ИП - Р21001",
     'fileName' => "Регистрация ИП",
     'filePath' => "http://biznesite.ru/registr-ip/download/".$ipfilename),
     array(
-    'title'=>"Дополнительное соглашение",
-    'fileName' => "Дополнительное соглашение",
-    'filePath' => "http://biznesite.ru/registr-ip/download/".$dopfilename),
-    array(
-    'title'=>"Форма для перехода на упрощенное налогообложение",
+    'title'=>"Форма для перехода на упрощенную систему налогообложения",
     'fileName' => "Форма упрощенки",
     'filePath' => "http://biznesite.ru/registr-ip/download/".$uprfilename
+    ),
+    array(
+    'title'=>"Платежный документ для уплаты госпошлины",
+    'fileName' => "Платежный документ",
+    'filePath' => "http://biznesite.ru/registr-ip/download/".$filenameNalogPlat
+    ),
+    array(
+    'title'=>"Дополнительное соглашение",
+    'fileName' => "Дополнительное соглашение",
+    'filePath' => "http://biznesite.ru/registr-ip/download/".$dopfilename
+    ),
+    array(
+    'title'=>"Пошаговая инструкция по регистрации ИП",
+    'fileName' => "Форма упрощенки",
+    'filePath' => "http://biznesite.ru/registr-ip/download/instruct.pdf"
     )
 
 ));
@@ -274,8 +294,11 @@ function changePhoneNumber($phone){
     //+01234567890
     //+79878130899
     $newPhone = "";
-    if($phone[0] <= "8" && $phone[1] < "9"){
+    if($phone[0] != "7" && $phone[0] <= "8" && $phone[1] < "9"){
         return $phone;
+    }
+    if($phone[0] == "7"){
+	$phone="+".$phone;
     }
 
     if($phone[0] == "8" && $phone[1] == "9"){
