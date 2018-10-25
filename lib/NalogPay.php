@@ -14,8 +14,11 @@ class NalogPay{
     private $urlStep4="https://service.nalog.ru/static/pd.html";
     private $path = "/var/www/biznesite/data/www/biznesite.ru/registr-ip/download/";
     private $urlPersonalData = "https://service.nalog.ru/static/personal-data-proc.json";
+    private $urlSearch = "https://service.nalog.ru/static/kladr-edit.html?c=context_search";
     private $answerKladr ="";
+    private $answerKladrSearch ="";
     private $answer1 ="";
+
     //$url = "https://service.nalog.ru/gp2.do";
 //$cookie_file_path="cookie.txt";
 //$url2="https://service.nalog.ru/static/pd.html";
@@ -29,6 +32,7 @@ class NalogPay{
         $this->log = new Log();
         $this->data =$data;
         $this->log = $log;
+        $this->cookie_file_path = "cookie".time().".txt";
     }
     public function process(){
         if($this->step1()){
@@ -56,7 +60,7 @@ class NalogPay{
         }
     }
     private function step1(){
-        //echo "===== Step 1";
+        $this->log->debug("===== Step 1");
         $this->ch = curl_init();
         curl_setopt($this->ch,CURLOPT_URL, $this->urlStep1);
         curl_setopt($this->ch,CURLOPT_RETURNTRANSFER, true);
@@ -67,11 +71,11 @@ class NalogPay{
         $result = curl_exec($this->ch);
         //echo "curl info\n";
         $responseHeader = curl_getinfo($this->ch);
-       //print_r(  $responseHeader);
+        $this->log->debug($responseHeader);
         //print_r($result);
 
         if($responseHeader['http_code'] == 302) {
-            //echo "Redirecting to ".$responseHeader['redirect_url']."\n";
+            $this->log->debug( "Redirecting to ".$responseHeader['redirect_url']."\n");
             $requestBodyPersonalData= "key=payment&from=%2Fgp2.do&personakData=1";
             curl_setopt($this->ch, CURLOPT_HTTPHEADER, array(
                 'Host: service.nalog.ru',
@@ -93,7 +97,7 @@ class NalogPay{
             $result = curl_exec($this->ch);
             //echo "curl info\n";
             $responseHeader = curl_getinfo($this->ch);
-           //print_r(  $responseHeader);
+            $this->log->debug( $responseHeader);
            //print_r($result);
             //echo "Done.\n";
             //echo "Normal url ============\n";
@@ -101,13 +105,13 @@ class NalogPay{
             $result = curl_exec($this->ch);
             //echo "curl info\n";
             $responseHeader = curl_getinfo($this->ch);
-           //print_r(  $responseHeader);
+            $this->log->debug( $responseHeader);
             if($responseHeader['http_code'] == 302){
                 //echo "Redirect STOP";
                 return true;
             }
         }
-        //echo "==== Step 1 done =====";
+        $this->log->debug("==== Step 1 done =====");
 
     }
     private function step2(){
@@ -177,7 +181,7 @@ class NalogPay{
         }
     }
     private function step3(){
-        //echo "======= STEP3 KLADR REQUEST =================================\n";
+        $this->log->debug("======= STEP3 KLADR REQUEST =================================\n");
 
         $addr= "";
         if(isset($this->data['6.4.2'])){
@@ -186,6 +190,11 @@ class NalogPay{
             $addr .= $this->data['6.5.2'] . " ".$this->data['6.5.1'].",";
         }
         $addr.= $this->data['6.6.2']." ".$this->data['6.6.1'];
+
+        $this->searchAddr();
+        if(!$this->searchAddr() && is_array($this->answerKladrSearch)){
+            $addr = $this->answerKladrSearch['items'][0];
+        }
         $requestBodyKladr ="c=complete".
             "&flags=1201".
             "&zip=".
@@ -198,7 +207,8 @@ class NalogPay{
             "&flatGeonim=".urlencode("КВ").
             "&flat=".urlencode($this->data['6.9.2']).
             "&PreventChromeAutocomplete=";
-       //print_r($requestBodyKladr);
+        $this->log->debug($requestBodyKladr);
+        $this->log->debug(urldecode($requestBodyKladr));
 
         curl_setopt($this->ch, CURLOPT_URL, $this->urlStep3);
         curl_setopt($this->ch, CURLOPT_HTTPHEADER, array(
@@ -209,7 +219,7 @@ class NalogPay{
             'Origin: https://service.nalog.ru',
             'X-Requested-With: XMLHttpRequest',
             'Content-Type: application/x-www-form-urlencoded',
-            'Referer: https://service.nalog.ru/static/kladr2.html?inp=addrFl&aver=3.26.4&sver=4.27.0&pageStyle=NALOG',
+            'Referer: https://service.nalog.ru/static/kladr2.html?inp=addrFl&aver=3.26.10&sver=4.27.2&pageStyle=NALOG',
             'Accept-Encoding: gzip, deflate, br',
             'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8'
         ));
@@ -221,10 +231,10 @@ class NalogPay{
 //do stuff with the info with DomDocument() etc
         $json1 = curl_exec($this->ch);
         $information = curl_getinfo($this->ch);
-       //print_r($information);
+        $this->log->debug($information);
         $this->answerKladr = (array) json_decode($json1);
-       //print_r($this->answerKladr);
-        //echo "======= STEP3 done =================================\n";
+        $this->log->debug($this->answerKladr);
+        $this->log->debug("======= STEP3 done =================================\n");
 
         if(isset($this->answerKladr['ERROR'])){
             return true;
@@ -324,5 +334,52 @@ class NalogPay{
             return true;
         }
         return $this->answer2['token'].".pdf";
+    }
+    private function searchAddr(){
+        $this->log->debug("======= KladrSearch REQUEST =================================\n");
+
+        $addr= "";
+        if(isset($this->data['6.4.2'])){
+            $addr .= $this->data['6.4.2'] . " ".$this->data['6.4.1'].",";
+        }else{
+            $addr .= $this->data['6.5.2'] . " ".$this->data['6.5.1'].",";
+        }
+        $addr.= $this->data['6.6.2']." ".$this->data['6.6.1'];
+        $requestBodyKladrSearch = "region=".$this->data['6.2'].
+            "&text=".urlencode($addr).
+            "&searchCount=1";
+        $this->log->debug($requestBodyKladrSearch);
+        $this->log->debug(urldecode($requestBodyKladrSearch));
+
+        curl_setopt($this->ch, CURLOPT_URL, $this->urlSearch);
+        curl_setopt($this->ch, CURLOPT_HTTPHEADER, array(
+            'Host: service.nalog.ru',
+            'Connection: keep-alive',
+            'Content-Length: ' . strlen($requestBodyKladrSearch),
+            'Accept: application/json, text/javascript, */*; q=0.01',
+            'Origin: https://service.nalog.ru',
+            'X-Requested-With: XMLHttpRequest',
+            'Content-Type: application/x-www-form-urlencoded',
+            'Referer: https://service.nalog.ru/static/kladr2.html?inp=addrFl&aver=3.26.10&sver=4.27.2&pageStyle=NALOG',
+            'Accept-Encoding: gzip, deflate, br',
+            'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8'
+        ));
+        curl_setopt($this->ch, CURLOPT_POST,           1 );
+        curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($this->ch, CURLOPT_POSTFIELDS, $requestBodyKladrSearch );
+        curl_setopt($this->ch, CURLINFO_HEADER_OUT, true);
+
+//do stuff with the info with DomDocument() etc
+        $json1 = curl_exec($this->ch);
+        $information = curl_getinfo($this->ch);
+        $this->log->debug($information);
+        $this->answerKladrSearch = (array) json_decode($json1);
+        $this->log->debug($this->answerKladrSearch);
+        $this->log->debug("======= KladrSearch done =================================\n");
+
+        if(isset($this->answerKladrSearch['ERROR'])){
+            return true;
+        }
+
     }
 }

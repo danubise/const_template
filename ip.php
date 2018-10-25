@@ -42,8 +42,12 @@ $data['1.2.1'] ="";
 $data['1.2.2'] ="";
 $data['1.2.3'] ="";
 $data['telephone'] = changePhoneNumber( trim($data['telephone']));
-
+$data['kladrObj'] = str_replace("NULL" , "\"\"",$data['kladrObj']);
 $kladrData = json_decode($data['kladrObj']);
+$log->debug($kladrData, "KladrDATA");
+if(is_null($kladrData)){
+    $log->error("kladrObj is null");
+}
 foreach ($kladrData as $key => $value) {
   // code...
 //  var_dump( $value->TYPE);
@@ -78,7 +82,16 @@ foreach ($kladrData as $key => $value) {
 if(trim($data['6.9.2'])==""){
     $data['6.9.1'] = "";
 }
-
+$log->debug('6.4.1 ='.$data['6.4.1']);
+$log->debug('6.4.2 ='.$data['6.4.2']);
+$log->debug('6.5.1 ='.$data['6.5.1']);
+$log->debug('6.5.2 ='.$data['6.5.2']);
+$log->debug('6.6.1 ='.$data['6.6.1']);
+$log->debug('6.6.2 ='.$data['6.6.2']);
+$log->debug('6.7.1 ='.$data['6.7.1']);
+$log->debug('6.7.2 ='.$data['6.7.2']);
+$log->debug('6.9.1 ='.$data['6.9.1']);
+$log->debug('6.9.2 ='.$data['6.9.2']);
 $iptemplate = new IPTemplate();
 $ownerName="";
 if(isset($data['1.1.1'])){
@@ -127,20 +140,20 @@ $uprData['PERSONALDOCUMENT'] = "";
 $uprfilename = $uprtemplate->showPDF($uprData);
 
 
-$staticData[0]['agentName']="Индивидуальному Предпринимателю Фролову Александру Николаевичу";
-$staticData[0]['agentName2']="Индивидуальный Предприниматель Фролов Александр Николаевич";
-$staticData[0]['OGRN']="318645100032480";
-$staticData[0]['agentCity']="г. Саратов";
-$staticData[0]['email']="aleksander-frolov@yandex.ru";
-$staticData[0]['agentShortName']="Фролов А.Н.";
-$staticData[0][]="";
-$staticData[0][]="";
-$staticData[0][]="";
-$agentCompanyData[0]['companyName']="АО «Деловая среда» ОГРН 1127746271355";
-$agentCompanyData[0]['companyAddress']="г. Москва, ул. Вавилова, д. 19, ПАО Сбербанк ОГРН 1027700132195";
-$agentCompanyData[0]['companyShortName']="ПАО Сбербанк";
-$agentCompanyData[0]['companyName']="АО «Деловая среда»";
-$agentCompanyData[0]['companyName']="АО «Деловая среда»";
+$staticData['SBERBANK']['agentName']="Индивидуальному Предпринимателю Фролову Александру Николаевичу";
+$staticData['SBERBANK']['agentName2']="Индивидуальный Предприниматель Фролов Александр Николаевич";
+$staticData['SBERBANK']['OGRN']="318645100032480";
+$staticData['SBERBANK']['agentCity']="г. Саратов";
+$staticData['SBERBANK']['email']="aleksander-frolov@yandex.ru";
+$staticData['SBERBANK']['agentShortName']="Фролов А.Н.";
+$staticData['SBERBANK'][]="";
+$staticData['SBERBANK'][]="";
+$staticData['SBERBANK'][]="";
+$agentCompanyData['SBERBANK']['companyName']="АО «Деловая среда» ОГРН 1127746271355";
+$agentCompanyData['SBERBANK']['companyAddress']="г. Москва, ул. Вавилова, д. 19, ПАО Сбербанк ОГРН 1027700132195";
+$agentCompanyData['SBERBANK']['companyShortName']="ПАО Сбербанк";
+$agentCompanyData['SBERBANK']['companyName']="АО «Деловая среда»";
+$agentCompanyData['SBERBANK']['companyName']="АО «Деловая среда»";
 
 
 $dopSogl = new DopSoglashenieTemplate();
@@ -175,8 +188,8 @@ $html = "
 
 <p class=\"first\">Я, ".$data['1.1.1']." " .$data['1.1.2']." ".$data['1.1.3'] .", ".$data['4.2'].", паспорт ".$data['7.2'].
     ",  дата выдачи ".$data['7.3.1'].".".$data['7.3.2'].".".$data['7.3.3'].
-    " г, выдан ".$data['7.4'].",  настоящим даю свое согласие ". $staticData[0]['agentName']." ОГРН/ОГРНИП ".$staticData[0]['OGRN'].
-    ", расположенному по адресу: ".$agentCompanyData[0]['companyName'].", расположенному по адресу: ".$agentCompanyData[0]['companyAddress']."</p>
+    " г, выдан ".$data['7.4'].",  настоящим даю свое согласие ". $staticData[$data['openNewAccount']]['agentName']." ОГРН/ОГРНИП ".$staticData[$data['openNewAccount']]['OGRN'].
+    ", расположенному по адресу: ".$agentCompanyData[$data['openNewAccount']]['companyName'].", расположенному по адресу: ".$agentCompanyData[$data['openNewAccount']]['companyAddress']."</p>
     
 
 <br />
@@ -187,28 +200,28 @@ $html = "
     "<br>•   E-mail - ".$data['email']."</p>
 <br />
 <p class=\"first\">"."Цель обработки персональных данных: для совершения действий по поиску и привлечению\n
-покупателей продуктов ".$agentCompanyData[0]['companyShortName'].", для обработки поступившей заявки субъекта персональных\n
-данных на приобретение одного из продуктов ".$agentCompanyData[0]['companyShortName']." оператором обработки персональных данных;
- после обработки поступившей заявки субъекта персональных данных направления на рассмотрение специалистов ".$agentCompanyData[0]['companyShortName'].
+покупателей продуктов ".$agentCompanyData[$data['openNewAccount']]['companyShortName'].", для обработки поступившей заявки субъекта персональных\n
+данных на приобретение одного из продуктов ".$agentCompanyData[$data['openNewAccount']]['companyShortName']." оператором обработки персональных данных;
+ после обработки поступившей заявки субъекта персональных данных направления на рассмотрение специалистов ".$agentCompanyData[$data['openNewAccount']]['companyShortName'].
     " заявки субъекта персональных данных в целях принятия соответствующего решения."."</p> 
 <br />
 <p class=\"first\">"."Настоящее согласие предоставляется на осуществление любых действий в отношении моих персональных данных, которые необходимы или желаемы для достижения указанных выше целей, включая (без ограничения) сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, распространение, обезличивание, блокирование, трансграничную передачу персональных данных, а также осуществление любых иных действий с моими персональными данными, предусмотренных действующим законодательством Российской Федерации. "."</p> 
 
 <br />
-<p class=\"first\">"."Настоящим, соглашаюсь с направлением в мой адрес посредством использования телефонной, факсимильной, подвижной радиотелефонной связи, а также электронной почты информации и рекламных сообщений о разработанных ".$agentCompanyData[0]['companyName']." и ".$agentCompanyData[0]['companyShortName']." продуктах и услугах. "."</p> 
+<p class=\"first\">"."Настоящим, соглашаюсь с направлением в мой адрес посредством использования телефонной, факсимильной, подвижной радиотелефонной связи, а также электронной почты информации и рекламных сообщений о разработанных ".$agentCompanyData[$data['openNewAccount']]['companyName']." и ".$agentCompanyData[$data['openNewAccount']]['companyShortName']." продуктах и услугах. "."</p> 
 <br />
-<p class=\"first\">".$staticData[0]['agentName2']." гарантирует, что обработка моих личных данных 
+<p class=\"first\">".$staticData[$data['openNewAccount']]['agentName2']." гарантирует, что обработка моих личных данных 
 осуществляется в соответствии с действующим законодательством Российской Федерации."."</p> 
 <br />
-<p class=\"first\">"."Я проинформирован и даю согласие, что ".$staticData[0]['agentName']
-    .", ".$agentCompanyData[0]['companyName']." и ".$agentCompanyData[0]['companyShortName']
+<p class=\"first\">"."Я проинформирован и даю согласие, что ".$staticData[$data['openNewAccount']]['agentName']
+    .", ".$agentCompanyData[$data['openNewAccount']]['companyName']." и ".$agentCompanyData[$data['openNewAccount']]['companyShortName']
     ." будут обрабатывать мои персональные данные как неавтоматизированным, так и автоматизированным способом обработки. "."</p> 
 <br />
 <p class=\"first\">"."Данное Согласие действует до достижения целей обработки моих персональных данных, установленных действующим законодательством Российской Федерации, или в течение 1 года с момента его получения. По истечении указанного срока действие согласия считается продленным на каждый следующий год при отсутствии сведений о его отзыве.
 
 Согласие может быть отозвано субъектом путем направления: 
 - письменного обращения субъекта на почтовый адрес или направления скана-образа письма в свободной форме за подписью субъекта персональных данных и содержащего в явном виде отзыв согласия на обработку персональных данных на адрес электронной почты: ".
-    $staticData[0]['email'].". <br \>
+    $staticData[$data['openNewAccount']]['email'].". <br \>
 Я подтверждаю, что, давая такое Согласие, я действую своей волей и в своих интересах. 
 "."</p> 
 <table></table>
@@ -236,7 +249,7 @@ $html = "
     </tr>
     <tr>
         <td>________________________/В.Г. Тарасов /</td>
-        <td>______________________/ ".$staticData[0]['agentShortName']." /</td>
+        <td>______________________/ ".$staticData[$data['openNewAccount']]['agentShortName']." /</td>
     </tr>
 
         <tr>
@@ -253,10 +266,16 @@ $html = "
 $dopSogl->writeData($html );
 
 $dopfilename = $dopSogl->getPDF($data);
-$np = new NalogPay($data, $log);
-$filenameNalogPlat = $np->process();
-if(!$filenameNalogPlat){
-
+if(is_array($kladrData)){
+    $np = new NalogPay($data, $log);
+    $filenameNalogPlat = $np->process();
+}else{
+    $filenameNalogPlat = false;
+}
+if($filenameNalogPlat){
+    $urlNalogPlat = "http://biznesite.ru/registr-ip/download/".$filenameNalogPlat;
+}else{
+    $urlNalogPlat = "https://service.nalog.ru/gp2.do";
 }
 $log->debug($filenameNalogPlat);
 
@@ -273,7 +292,7 @@ $files =json_encode(array(
     array(
     'title'=>"Платежный документ для уплаты госпошлины",
     'fileName' => "Платежный документ",
-    'filePath' => "http://biznesite.ru/registr-ip/download/".$filenameNalogPlat
+    'filePath' => $urlNalogPlat
     ),
     array(
     'title'=>"Дополнительное соглашение",
