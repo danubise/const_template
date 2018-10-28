@@ -469,10 +469,10 @@ class IPTemplate
         $this->pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
         $this->pdf->SetCreator(PDF_CREATOR);
-        $this->pdf->SetAuthor('Nicola Asuni');
-        $this->pdf->SetTitle('TCPDF Example 001');
-        $this->pdf->SetSubject('TCPDF Tutorial');
-        $this->pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        $this->pdf->SetAuthor('Бизнес сайт');
+        $this->pdf->SetTitle('ИП - Р21001');
+        $this->pdf->SetSubject('ИП - Р21001');
+        $this->pdf->SetKeywords('ИП - Р21001, PDF , Регистрация ИП');
 
         $this->pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
