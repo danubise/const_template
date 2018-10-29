@@ -1,8 +1,8 @@
 <?php
 setlocale(LC_CTYPE, 'POSIX');
 error_reporting(0);
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
+#error_reporting(E_ALL);
+#ini_set('display_errors', 1);
 
 require_once('lib/TCPDF/tcpdf.php');
 require_once('lib/IPTemplate.php');
@@ -14,6 +14,10 @@ require_once ('./lib/DopSoglashenieTemplate.php');
 include_once ('./lib/LinePosition.php');
 include_once ('./lib/CharactersPositionDiviation.php');
 include_once ('lib/NalogPay.php');
+include_once ('admin/internal_config.php');
+include_once ('admin/core/mysqli.php');
+$db = new db($_config['mysql']);
+
 
 $log = new Log($config);
 
@@ -48,6 +52,7 @@ $log->debug($kladrData, "KladrDATA");
 if(is_null($kladrData)){
     $log->error("kladrObj is null");
 }
+$dopSoglAddressRegistracii ="";
 foreach ($kladrData as $key => $value) {
   // code...
 //  var_dump( $value->TYPE);
@@ -58,11 +63,13 @@ foreach ($kladrData as $key => $value) {
             $data['6.4.2'] = $value->NAME;
             $data['6.5.1']="";
             $data['6.5.2']="";
+            $dopSoglAddressRegistracii = $data['6.4.1']. " " .$data['6.4.2'];
         }else{
             $data['6.4.1'] = "";
             $data['6.4.2'] = "";
             $data['6.5.1']=$value->TYPESHORT;
             $data['6.5.2']=$value->NAME;
+            $dopSoglAddressRegistracii = $data['6.5.1']. " " .$data['6.5.2'];
         }
     break;
     case "STREET":
@@ -111,7 +118,12 @@ $ipfilename = $iptemplate->showPDF($data);
 $encoded_image = explode(",",str_replace(' ','+', $data['sign']))[1];
 $decoded_image = base64_decode($encoded_image);
 file_put_contents($path,$decoded_image);
-
+unset($data['alfabank']);
+$data['kladrObj'] = base64_encode($data['kladrObj']);
+$db->set_charset("utf8");
+$inserID = $db->insert("documents", $data);
+$log->debug($inserID);
+$log->debug($db->query->last);
 
 $uprtemplate = new UPRFormaTemplate();
 $uprData['INN'] = $data['2'];
@@ -360,7 +372,7 @@ $html = "
 <br />
 <p class=\"first\">"."•   ФИО - ".$data['1.1.1']." " .$data['1.1.2']." ".$data['1.1.3'].
     "<br>•   регион проживания - ".$regionData[$data['6.2']].
-    "<br>•   населенный пункт проживания - ".$data['4.2'].
+    "<br>•   населенный пункт проживания - ".$dopSoglAddressRegistracii.
     "<br>•   контактный телефон - ".$data['telephone'].
     "<br>•   E-mail - ".$data['email']."</p>
 <br />

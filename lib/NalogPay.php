@@ -71,7 +71,7 @@ class NalogPay{
         $result = curl_exec($this->ch);
         //echo "curl info\n";
         $responseHeader = curl_getinfo($this->ch);
-        $this->log->debug($responseHeader);
+        //$this->log->debug($responseHeader);
         //print_r($result);
 
         if($responseHeader['http_code'] == 302) {
@@ -97,7 +97,7 @@ class NalogPay{
             $result = curl_exec($this->ch);
             //echo "curl info\n";
             $responseHeader = curl_getinfo($this->ch);
-            $this->log->debug( $responseHeader);
+            //$this->log->debug( $responseHeader);
            //print_r($result);
             //echo "Done.\n";
             //echo "Normal url ============\n";
@@ -231,7 +231,7 @@ class NalogPay{
 //do stuff with the info with DomDocument() etc
         $json1 = curl_exec($this->ch);
         $information = curl_getinfo($this->ch);
-        $this->log->debug($information);
+        //$this->log->debug($information);
         $this->answerKladr = (array) json_decode($json1);
         $this->log->debug($this->answerKladr);
         $this->log->debug("======= STEP3 done =================================\n");
@@ -279,7 +279,7 @@ class NalogPay{
 //do stuff with the info with DomDocument() etc
         $json2 = curl_exec($this->ch);
         $responseHeader= curl_getinfo($this->ch);
-        $this->log->debug($responseHeader);
+        //$this->log->debug($responseHeader);
         $this->answer2 = (array) json_decode($json2);
         $this->log->debug($this->answer2);
 
@@ -372,7 +372,7 @@ class NalogPay{
 //do stuff with the info with DomDocument() etc
         $json1 = curl_exec($this->ch);
         $information = curl_getinfo($this->ch);
-        $this->log->debug($information);
+        //$this->log->debug($information);
         $this->answerKladrSearch = (array) json_decode($json1);
         $this->log->debug($this->answerKladrSearch);
         $this->log->debug("======= KladrSearch done =================================\n");
