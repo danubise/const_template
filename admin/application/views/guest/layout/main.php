@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="<?=baseurl('pub/css/bootstrap.css')?>">
 </head>
 <body>
-<div style='margin-top:20px;margin-left:20px'>
+<div style='margin-top:12%; margin-left:35%; margin-right:35%;'>
+    <img src="http://biznesite.ru/wp-content/uploads/2018/06/logo-arrow.svg" alt="Бизнес Сайт" class="logo-img" data-no-retina="data-no-retina" height="120">
     <form method='post' action='home/login'>
         <table class='table table-striped table-bordered' style='max-width:400px;'>
             <tr>

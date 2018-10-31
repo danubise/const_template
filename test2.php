@@ -5,6 +5,8 @@ ini_set('display_errors', 1);
 
 require_once('lib/TCPDF/tcpdf.php');
 require_once('lib/IPTemplate.php');
+require_once ('lib/LinePosition.php');
+require_once ('lib/CharactersPositionDiviation.php');
 
 $iptemplate = new IPTemplate();
 
@@ -87,12 +89,12 @@ $data['page4.1'] = "12.54.39";
 
 
 $data['page4.2'][0] = "43.23.89";
-$data['page4.2'][1] = "43.44.89";
-$data['page4.2'][2] = "30.51.42";
+$data['page4.2'][1] = "43.44.8";
+$data['page4.2'][2] = "30.51.";
 $data['page4.2'][3] = "32.63.21";
-$data['page4.2'][4] = "51.40.59";
+$data['page4.2'][4] = "51.40.9";
 $data['page4.2'][5] = "32.42.60";
-$data['page4.2'][6] = "31.42.76";
+$data['page4.2'][6] = "31.42.";
 $data['page4.2'][7] = "39.62.38";
 $data['page4.2'][8] = "41.36.26";
 $data['page4.2'][9] = "38.49.97";
@@ -204,10 +206,6 @@ $data['page4.2'][] = "99.49.11";
 
 
 
-
-
-
-
 $data['pagenamber5'] = "005";
 
 $data['1'] = "1";
@@ -220,23 +218,4 @@ $data['3.2'] = "123456789012";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$iptemplate->showPDF($data);
+$iptemplate->showPDFtest($data);

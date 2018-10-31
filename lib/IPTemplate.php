@@ -338,6 +338,25 @@ class IPTemplate
 
 
     }
+    public function showPDFtest($data){
+        $this->createPDF();
+        $this->writeDataToPage($data);
+        $ownerName="";
+        if(isset($data['1.1.1'])){
+            $ownerName.="_".$data['1.1.1'];
+        }
+        if(isset($data['1.1.2'])){
+            $ownerName.=$data['1.1.2'];
+        }
+        if(isset($data['1.1.3'])){
+            $ownerName.=$data['1.1.3'];
+        }
+        $filename = "РЕГИСТРАЦИЯ_ИП".$ownerName;
+        $hashfilename = md5($filename);
+
+        $this->pdf->Output('example_001.pdf', 'I');
+
+    }
 
     private function writeDataToPage($data){
         $data['7.2'] = $this->pasportFormater($data['7.2']);
@@ -381,28 +400,44 @@ class IPTemplate
 
     }
     private function pageFour($page, $data){
-        if($this->pageNumber == 8 ) return;
+        if($this->pageNumber == 15 ) return;
         $this->addNewPage($page);
 
 
         $data['pagenamber4'] = sprintf("%03d", $this->pageNumber);
         $removedDot = "";
-        foreach ($data as $lineid => $text) {
+        $lineid = "pagenamber4";
+        $text = $data['pagenamber4'];
+        if (isset($this->linePosition[$page][$lineid]) ) {
+            $removedDot = str_replace(".", "", $text);
+            $textArray = $this->mb_str_split($removedDot);
+            $inlineStartPosition = $this->printLines($page, $lineid, $textArray);
+        }
+        if(isset($data['page4.1'])){
+            $lineid = "page4.1";
+            $text = $data['page4.1'];
             if (isset($this->linePosition[$page][$lineid]) ) {
-                if(is_array($text)){
-                    $fullString="";
-                    foreach($text as $key=>$text){
-                        if($lineid == "page4.2"){
-                            $text = $this->changeOKVDlen($text);
-                        }
-                        $fullString.=$text;
-                    }
-                    $text=$fullString;
-                }
-                $removedDot = str_replace (".","",$text);
+                $removedDot = str_replace(".", "", $text);
                 $textArray = $this->mb_str_split($removedDot);
                 $inlineStartPosition = $this->printLines($page, $lineid, $textArray);
             }
+        }
+        $lineid = "page4.2";
+        $text = $data['page4.2'];
+        if (isset($this->linePosition[$page][$lineid]) ) {
+            if(is_array($text)){
+                $fullString="";
+                foreach($text as $key=>$okvd){
+                    if($lineid == "page4.2"){
+                        $okvd = $this->changeOKVDlen($okvd);
+                    }
+                    $fullString.=$okvd;
+                }
+                $text=$fullString;
+            }
+            $removedDot = str_replace(".", "", $text);
+            $textArray = $this->mb_str_split($removedDot);
+            $inlineStartPosition = $this->printLines($page, $lineid, $textArray);
         }
         return array("startFrom" => $inlineStartPosition, "data" => $removedDot );
 

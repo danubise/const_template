@@ -27,6 +27,9 @@ class NalogPay{
     private $ch = "";
     private $data = "";
     private $log= "";
+    public function getTextAddress(){
+        return $this->answerKladr['text'];
+    }
     public function __construct($data, $log)
     {
         $this->log = new Log();
