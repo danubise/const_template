@@ -49,6 +49,9 @@
                 case "nalogFileURL":
                     echo "<td><a href=\"".$data[$key]."\" target='_blank'>Уплата госпошлины</a></td>";
                     break;
+                case "uprFileURL":
+                    echo "<td><a href=\"".$data[$key]."\" target='_blank'>Форма для перехода на упрощенную систему налогообложения</a></td>";
+                    break;
                 default:
                     echo "<td>" .$data[$key] ."</td>";
             }

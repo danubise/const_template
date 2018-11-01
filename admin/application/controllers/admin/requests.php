@@ -21,6 +21,7 @@ class Requests extends Core_controller
          r.name as regionName,
          email,
          (CASE WHEN (site = 1) THEN \"Да\" ELSE \"Нет\" END) as site,
+         (CASE WHEN (bookkeeping = 1) THEN \"Да\" ELSE \"Нет\" END) as bookkeeping,
          (CASE WHEN (personal = 1) THEN \"Да\" ELSE \"Нет\" END) as personal,
          (CASE WHEN (stamp = 1) THEN \"Да\" ELSE \"Нет\" END) as stamp,
          CONCAT(`4.1.1`,\"-\",`4.1.2`,\"-\",`4.1.3`) AS birthday,
@@ -30,7 +31,8 @@ class Requests extends Core_controller
          `nalog`,
          `dopFileURL`,
          `ipFileURL`,
-         `nalogFileURL`
+         `nalogFileURL`,
+         `uprFileURL`
          FROM `documents` as d , `regions` as r WHERE r.id=d.`6.2` ORDER BY `id` DESC LIMIT ".$linecount );
         //echo $this->db->query->last;
         $headFeilds = array();
@@ -71,6 +73,9 @@ class Requests extends Core_controller
                     break;
                 case "site":
                     $fieldName="Сайт";
+                    break;
+                case "bookkeeping":
+                    $fieldName="Бухгалтерия";
                     break;
                 case "2":
                     $fieldName="ИНН";

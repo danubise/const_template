@@ -201,6 +201,7 @@ $data['Date'] = date("Y-m-d");
 $data['dopFileURL'] =  "http://biznesite.ru/registr-ip/download/".$dopfilename;
 $data['ipFileURL'] =  "http://biznesite.ru/registr-ip/download/".$ipfilename;
 $data['nalogFileURL'] =  $urlNalogPlat;
+$data['uprFileURL'] = "http://biznesite.ru/registr-ip/download/".$uprfilename;
 
 $inserID = $db->insert("documents", $data);
 $log->debug($inserID);
